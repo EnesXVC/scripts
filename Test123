@@ -1,0 +1,129 @@
+--[[
+    Version: 2.0.0
+    Last Update: 2023-11-15
+    Features:
+    - Better string obfuscation
+    - More randomization
+    - Anti-decompilation techniques
+    - Fake code injection
+    - Binary encoding
+]]--
+
+local Obfuscator = {}
+
+-- Helper functions
+local function randomString(length)
+    local chars = {}
+    for i = 1, length do
+        local r = math.random(1, 3)
+        if r == 1 then
+            chars[i] = string.char(math.random(97, 122)) -- a-z
+        elseif r == 2 then
+            chars[i] = string.char(math.random(65, 90)) -- A-Z
+        else
+            chars[i] = tostring(math.random(0, 9)) -- 0-9
+        end
+    end
+    return table.concat(chars)
+end
+
+local function toBinary(str)
+    local binary = {}
+    for i = 1, #str do
+        local byte = string.byte(str, i)
+        local bits = {}
+        for j = 7, 0, -1 do
+            bits[#bits + 1] = byte & (1 << j) ~= 0 and '1' or '0'
+        end
+        binary[#binary + 1] = table.concat(bits)
+    end
+    return table.concat(binary, " ")
+end
+
+local function generateFakeVars(count, prefix)
+    local vars = {}
+    for i = 1, count do
+        local name = prefix .. randomString(math.random(8, 15))
+        local value = '"' .. toBinary(randomString(math.random(20, 50))) .. '"'
+        vars[#vars + 1] = "local " .. name .. " = " .. value
+    end
+    return table.concat(vars, "; ")
+end
+
+local function encodeString(str)
+    local chunks = {}
+    for i = 1, #str do
+        chunks[#chunks + 1] = string.format("\\%03d", string.byte(str, i))
+    end
+    return table.concat(chunks)
+end
+
+local function generateLoaderFunction()
+    local loaderName = randomString(12)
+    local byteArrayName = randomString(12)
+    
+    local loaderCode = [[
+        local function ]] .. loaderName .. [[(]] .. byteArrayName .. [[)
+            if type(]] .. byteArrayName .. [[) == "table" then
+                return loadstring(table.concat(]] .. byteArrayName .. [[))()
+            else
+                ]] .. byteArrayName .. [[ = {]] .. byteArrayName .. [[}
+                return loadstring(table.concat(]] .. byteArrayName .. [[))()
+            end
+        end
+    ]]
+    
+    return loaderCode, loaderName
+end
+
+-- Main obfuscation function
+function Obfuscator.obfuscate(source, options)
+    options = options or {}
+    local varPrefix = options.varPrefix or "OBF_"
+    local watermark = options.watermark or "Protected by AdvancedObfuscator"
+    
+    -- Generate random names for our components
+    local byteTableName = varPrefix .. randomString(10)
+    local loaderCode, loaderFuncName = generateLoaderFunction()
+    
+    -- Convert source to byte array
+    local byteArray = {}
+    for i = 1, #source do
+        byteArray[#byteArray + 1] = string.format('"%03d"', string.byte(source, i))
+    end
+    
+    -- Create fake variables
+    local fakeVars = generateFakeVars(math.random(5, 10), varPrefix)
+    
+    -- Build the obfuscated code
+    local obfuscated = {
+        "--[[" .. watermark .. "]]--\n\n",
+        "-- Fake variables to confuse decompilers\n",
+        fakeVars .. ";\n\n",
+        "-- Byte loader function\n",
+        loaderCode .. "\n\n",
+        "-- Main byte array\n",
+        "local " .. byteTableName .. " = {" .. table.concat(byteArray, ", ") .. "};\n\n",
+        "-- Execution\n",
+        "return " .. loaderFuncName .. "(" .. byteTableName .. ");\n",
+        "-- More fake code\n",
+        generateFakeVars(math.random(3, 6), varPrefix) .. ";\n"
+    }
+    
+    return table.concat(obfuscated)
+end
+
+-- Module interface
+return function(source, options)
+    if type(source) ~= "string" then
+        source = 'print("No source provided")'
+    end
+    
+    local obfuscated = Obfuscator.obfuscate(source, options)
+    
+    if options and options.copyToClipboard then
+        setclipboard(obfuscated)
+    end
+    
+    return obfuscated
+end
