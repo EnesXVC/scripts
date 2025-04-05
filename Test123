@@ -1,54 +1,50 @@
 --[[
-    Advanced Lua Obfuscator v2.1
+    GhostyDuckyy's Ultra Obfuscator v3.0
     Features:
-    - String obfuscation with multiple encoding methods
-    - Anti-tampering protection
+    - Strong string encryption
+    - Anti-decompilation techniques
     - Fake code injection
-    - Dynamic loader generation
+    - Dynamic loading
     - Watermark support
 ]]--
 
-local function randomString(len)
+local function generateRandomName(length)
     local chars = {}
-    for i = 1, len do
+    for i = 1, length do
         local r = math.random(1, 3)
         chars[i] = r == 1 and string.char(math.random(97, 122))
-                  or r == 2 and string.char(math.random(65, 90))
-                  or tostring(math.random(0, 9))
+                 or r == 2 and string.char(math.random(65, 90))
+                 or tostring(math.random(0, 9))
     end
     return table.concat(chars)
 end
 
-local function encodeString(str, method)
+local function encryptString(str)
     local result = {}
     for i = 1, #str do
-        local byte = string.byte(str, i)
-        if method == "hex" then
-            result[i] = string.format("\\x%02x", byte)
-        elseif method == "decimal" then
-            result[i] = string.format("\\%03d", byte)
-        else -- default to octal
-            result[i] = string.format("\\%03o", byte)
-        end
+        table.insert(result, string.format("\\%03d", string.byte(str, i)))
     end
     return table.concat(result)
 end
 
-local function generateFakeCode(prefix, count)
-    local lines = {}
+local function createFakeVariables(count, prefix)
+    local vars = {}
     for i = 1, count do
-        local varName = prefix..randomString(math.random(8, 12))
-        local fakeValue = math.random(1, 1000)
-        lines[#lines+1] = string.format("local %s = %d", varName, fakeValue)
+        local varName = prefix..generateRandomName(math.random(8, 12))
+        local value = math.random(1, 2) == 1 
+                     and string.format('"%s"', encryptString(generateRandomName(math.random(10, 20))))
+                     or tostring(math.random(1, 1000))
+        table.insert(vars, string.format("local %s = %s", varName, value))
     end
-    return table.concat(lines, "; ")
+    return table.concat(vars, "; ")
 end
 
-local function createLoaderFunction()
-    local loaderName = randomString(10)
-    local byteName = randomString(10)
+local function generateLoader()
+    local loaderName = generateRandomName(10)
+    local byteName = generateRandomName(10)
+    local tempName = generateRandomName(5)
     
-    local loaderCode = string.format([[
+    return string.format([[
         local function %s(%s)
             local %s = ""
             for _, v in ipairs(%s) do
@@ -56,58 +52,59 @@ local function createLoaderFunction()
             end
             return loadstring(%s)()
         end
-    ]], loaderName, byteName, randomString(5), byteName, randomString(5), randomString(5), randomString(5))
-    
-    return loaderCode, loaderName
+    ]], loaderName, byteName, tempName, byteName, tempName, tempName, tempName), loaderName
 end
 
-local function obfuscate(source, options)
+local function obfuscateScript(source, options)
     options = options or {}
-    local prefix = options.varPrefix or "OBF_"
-    local watermark = options.watermark or "Protected by AdvancedObfuscator"
+    local prefix = options.varPrefix or "GHOST_"
+    local watermark = options.watermark or "Secured by GhostyDuckyy#7698"
     
     -- Generate components
-    local loaderCode, loaderFunc = createLoaderFunction()
-    local byteArrayName = prefix..randomString(8)
+    local loaderCode, loaderFunc = generateLoader()
+    local byteArrayName = prefix..generateRandomName(8)
     
     -- Convert source to byte array
     local bytes = {}
     for i = 1, #source do
-        bytes[#bytes+1] = string.byte(source, i)
+        table.insert(bytes, string.byte(source, i))
     end
     
-    -- Generate obfuscated code
+    -- Build output
     local output = {
         "--[["..watermark.."]]--\n\n",
-        "-- Fake variables\n",
-        generateFakeCode(prefix, math.random(5, 8))..";\n\n",
-        "-- Loader function\n",
-        loaderCode.."\n\n",
-        "-- Byte array\n",
-        "local "..byteArrayName.." = {",
-        table.concat(bytes, ","),
-        "};\n\n",
-        "-- Execution\n",
-        "return "..loaderFunc.."("..byteArrayName..");\n",
+        "-- Fake variables to confuse decompilers\n",
+        createFakeVariables(math.random(5, 8), prefix, ";\n\n",
+        "-- Byte loader function\n",
+        loaderCode, "\n\n",
+        "-- Main byte array\n",
+        "local ", byteArrayName, " = {", table.concat(bytes, ","), "};\n\n",
+        "-- Execution point\n",
+        "return ", loaderFunc, "(", byteArrayName, ");\n",
         "-- More fake code\n",
-        generateFakeCode(prefix, math.random(3, 5))..";\n"
+        createFakeVariables(math.random(3, 5), prefix, ";\n"
     }
     
     return table.concat(output)
 end
 
--- Module interface
+-- Main module function
 return function(source, options)
+    -- Default source if none provided
     if not source or #source == 0 then
         source = 'print("No source provided")'
     end
     
-    local obfuscated = obfuscate(source, options or {
-        varPrefix = "SECURE_",
-        watermark = "Protected by AdvancedObfuscator v2"
-    })
+    -- Default options
+    options = options or {}
+    options.varPrefix = options.varPrefix or "SECURE_"
+    options.watermark = options.watermark or "Protected by GhostyDuckyy Obfuscator"
     
-    if options and options.copyToClipboard ~= false then
+    -- Obfuscate the source
+    local obfuscated = obfuscateScript(source, options)
+    
+    -- Copy to clipboard if requested
+    if options.copyToClipboard ~= false then
         setclipboard(obfuscated)
     end
     
