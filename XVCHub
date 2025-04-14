@@ -1,1 +1,282 @@
-return(function(...)local G=setmetatable local r=G({IN=function() end},{__mul=function(j,P)j.IN=P end,__index=function(j,P)return rawget(j,"IN")end})local d=G({Agb={"S5Ngjrz=","sJdnqUz=";(1557040-667148)+-889860,"d2xLaNyGrSdoUqxNlbsmZ4==";"0dd=";"onbJ9Ra=","Rca=";"rS3JrMz=","aMxLXGr=","aMHhlqKL";"uHO+dIJxlSJ6D2o=","AZqfd2B=";"r0jj",(26492721652207-493364)-(-869608);"kp9vAfxNXFyzr+H6XkJMAuj2AqvnXFoOaMx0AS9hWItnWMHFrN9vXM4O";-842176+5641885590561;"bQ8l0A6=","h37eGQW=";"AujzruDE";3212009949258-(202069+((133061+-844578)+34481));"2oHZr2B=";"s5Kzk1P=";"XqKJls==";16212652446364-(-923046),true;689531+-689525,"Xqxh";"A5DdxvOfATlSd29laur=";"XqKJlfD0aMvhlz==","KVDbgZs=",852158-852145;"rpv0l4==";772311+-706775,"STKLlS4=","I8LzPns=",-418824-(-418838),"xkcoyH4=";"l4==";"PtgSEWo=","RIZ5Oz==";"Ozbrqz==",1269+12537434006242,"1SFV124=";"r+Khr+H0";(155386+624131)+-779505;(716346-(-263996))+1276165;868394+-868389;2629197-(-858136),"vF1x+Tr=","we8RR/o=";1017047-1017043,"4qYTXM5nXfxJA4==";4294746039.0-(-221257);"wDmefrr=",12496621745479-(-941378),"u+eaPMB=","lSo=";"ms==";576600+14881365;"wo==",502162-502091,742406+13885677521785;-797340+5555472614364;331634+(442750+-774376);(1628711-800723)+-827986,"X4==";"STKOXM4=",(14772400522640-691488)-(-265591),-961642+20799508478341;222750+-212750;"wFovlk1Owo==";389049+-388952;"7lzvLtd=",214811+-214711;960695-960695;-694146+694162;"rMUeJS1=";532335-532080;"qG1Vzz5=",256165-256100,"mo0TtQ4=",625606-625603,"8rafCz==";-387286+387301,-411748+412004;-576930+2203822;"ujc0egW=","l+TJAqD1",-842640+(605161-(-462311+224815)),48946-48939;"x0j1dCyL";"P8obEk6=";"kShyx0W=";4140398-113788;326530+(-657732-(-1351229-(-1020018))),"r+JJao==","bbyLluKGWqtoXqK0W4==";-207111-(-207122);-342832-(-342833);"HJMJ1vW=";"aMHhlqB=";-482407+(-490907-(-973571)),6967087251896-(-324547);35184372252342-163510;"p96/mz==";-482235+482245;"aMx0AS9hWfy2ruY6ZqlTXMD0UuKhZkvNlS3TaMQodbBFru92WMxhlkP=",743146+33264077182750;-1022373+1022457,"RIRUXUB=";false;"";(-386876+9889521)-(-265797-63498),-851439+19329798892180;"lMYnXGW=","oplfApd=","JV6="}},{__concat=function(j,P)j.Agb=P end;__index=function(j,P)return rawget(j,"Agb")end})for j,P in ipairs({{636195+-636194,((-40749-(-441511))-755089)-(-354444)};{921326-921325;-64066-(-64167)};{-840298+(937576+-97176),594905+-594788}})do while P[-858620+858621]<P[-811586-(-811588)]do d.dl[P[283727+(-1209887-(-477915-448246))]],d.D3[P[-103722+103724]],P[1003151+-1003150],P[574532+-574530]=d.nc[P[-2467+2469]],d.iJ[P[-541034-(-541035)]],P[734278-734277]+((-1680982-(-935605))+745378),P[-383015+383017]-(648051+-648050)end end local y=G({Wcb=function(j)return d.jkb[j-(-910269-(-912286))]end},{__concat=function(j,P)j.Wcb=P end,__sub=function(j,P)return j.Wcb end})do local j=G({uF=string.char},{__pow=function(j,P)j.uF=P end;__mul=function(j,P)return j.uF end})local P=G({TL=math.floor},{__pow=function(j,P)j.TL=P end;__div=function(j,P)return j.TL end})local t=G({mkb=table.concat},{__index=function(j,P)j.mkb=P end;__concat=function(j,P)return rawget(j,"mkb")end})local y=G({Udb=d.TP},{__mul=function(j,P)j.Udb=P end;__concat=function(j,P)return j.Udb end})local o=G({fdb=string.len},{__concat=function(j,P)j.fdb=P end;__index=function(j,P)return rawget(j,"fdb")end})local m=G({eD=string.sub},{__mul=function(j,P)j.eD=P end;__sub=function(j,P)return j.eD end})local F=G({M7={o=(-642831+1306596)-663733;h=(232952-330725)+97819;r=(-147475+767534)+-620035;j=-640744+640801,H=840648+(-729718+(507246+-618171));N=(-905672+(2059647-820681))-333244;["9"]=-148536-(-207717-((-1655230-(-1010112))+585946));P=-264716+264752;S=274024-274001;L=644368+-644323;i=801772+-801710;M=-896477+896515;["2"]=-520270+520305,T=521680+-521627;X=808697-808670;["3"]=-607347-(((-349415-(-465455))-(-79711))-803115),["4"]=(-712184+71124)+641076;Z=903772-903762,["8"]=-110416-(-110427);A=350109+(283384-((169858-497105)-((-1481398-(-325742))-(-997833+802888))));a=635359-635331,O=257098-257057;p=((-577595+1653281)-431948)-643699;U=769928+-769902;["0"]=-277635+277687,z=426782-426734,["7"]=-925185-(-1629096-(-703860)),q=940806-940800,G=(1228984-258609)-970320;b=(-46879-(-68019))+-21122,["/"]=(279691+-435703)-(-156071),E=916482-916439;J=698118+-698085;g=(-142832+-118836)+261683,m=-662289-((1011261+(-691236+-300833))+-681539);V=(48680+(478839-(-223626)))-751114;B=32734+-32674;w=-370928+370942,["6"]=-700687-(-700101-(-72511-(-73141)));t=(250648+-478085)-(-227441),["5"]=-48402+48422;u=-901516+901538,v=51332+-51295;C=(-893925-(-830767))-(-63177);k=504207-504205;x=-960288-(-960309),Q=662115+-662059;R=-356117-(-356180),Y=836217+-836168;n=-851759+851806,["1"]=711078+-711038;y=602258+-602257;d=469661-(-95347+564996);c=65418+-65388,F=-330207-(-462932+132691);W=-197354-(-197362);K=1043060-1042999;l=-654936-(237954-892915),I=-853074+853077;f=-987907+987914;["+"]=763044-(613571+149419),D=-839860-(-839873),s=335449-335449,e=-130268+130310}},{__concat=function(j,P)j.M7=P end;__pow=function(j,P)return j.M7 end})local p=G({Ni=table.insert},{__concat=function(j,P)j.Ni=P end,__mul=function(j,P)return j.Ni end})local R=G({m4=type},{__sub=function(j,P)j.m4=P end,__mul=function(j,P)return j.m4 end})for d=((-972063-(-207194))+-273466)+1038336,#(y.."RL"),-128227+128228 do local M=G({Iz=(y.."zz")[d]},{__add=function(j,P)j.Iz=P end,__index=function(j,P)return rawget(j,"Iz")end})if(R*"Adb")(M.My)=="string"then local R=G({qG=o.gS(M.GH)},{__index=function(j,P)j.qG=P end;__concat=function(j,P)return rawget(j,"qG")end})local z=G({cu={}},{__div=function(j,P)j.cu=P end;__add=function(j,P)return j.cu end})local l=G({Lq=172308-(-358351+530658)},{__pow=function(j,P)j.Lq=P end;__add=function(j,P)return j.Lq end})local U=G({eu=(462029+-216097)+(-220899+-25033)},{__index=function(j,P)j.eu=P end;__pow=function(j,P)return rawget(j,"eu")end})local b=G({ZV=(-1082242-(-392669-(-488258+466708)))-(-1528136-(-817013))},{__index=function(j,P)j.ZV=P end,__mul=function(j,P)return rawget(j,"ZV")end})while l+"eF"<=R.."Y9"do local t=G({g5=(m-"Hc")(M.xr,l+"DW",l+"Q2")},{__index=function(j,P)j.g5=P end,__pow=function(j,P)return rawget(j,"g5")end})local d=G({ZC=(F^"ig")[t^"Mf"]},{__mul=function(j,P)j.ZC=P end,__sub=function(j,P)return j.ZC end})if d-"Cfb"then r.Az(U[U^"ZA"+(d-"Mmb")*(-629010-(-629074))^((493076-493073)-b*"Et")])r.Qk(b[b*"ip"+(-1039136-(-541495+(-221821+-275821)))])if b*"Gq"==(98183+-760722)-(-662543)then r.Oob(b[(358936+-938003)+579067])local t=G({PC=(P/"Enb")(U^"Lnb"/(-739289-(-804825)))},{__div=function(j,P)j.PC=P end,__index=function(j,P)return rawget(j,"PC")end})local d=G({Mi=(P/"QR")((U^"aY"%(-698842+764378))/(-767100-((-2545933-(-827439))-(-951138))))},{__index=function(j,P)j.Mi=P end,__concat=function(j,P)return rawget(j,"Mi")end})local y=G({DR=U^"Ow"%(923807-923551)},{__pow=function(j,P)j.DR=P end;__div=function(j,P)return j.DR end});(p*"Pkb")(z+"vX",(j*"clb")(t.io,d.."Vcb",y/"lE"))r.Mn(U[(-658303+30802)-(-627501)])end elseif t^"WF"=="="then(p*"fF")(z+"q0",(j*"Qx")((P/"IR")(U^"p1"/(-513934+579470))))if l+"bib">=R.."fL"or(m-"Sgb")(M.zQ,(l+"i4")+((-491161-(-585133))+-93971),(l+"Nk")+(417317-417316))~="="then(p*"fR")(z+"P4",(j*"Tg")((P/"jo")((U^"qib"%(602637-537101))/((-64297+-983393)+1047946))))end break end r.Av(l^((l+"pY")+(-424791-(174640+-599432))))end;(y.."Bfb")[d]=(t.."S")(z+"iQ")end end end do local j=G({yv=(y-"JI")(-925767-(-927793))},{__concat=function(j,P)j.yv=P end;__sub=function(j,P)return j.yv end})pcall(function()(getgenv())[(y-"Omb")(-475723+477845)]=function() end end)local P=G({D9=string[(y-"F9")(-127480+(920840-791271))]},{__mul=function(j,P)j.D9=P end,__pow=function(j,P)return j.D9 end})local t=G({ru=function()error((y-"r_")(-398108+400206))end},{__mul=function(j,P)j.ru=P end,__index=function(j,P)return rawget(j,"ru")end})local d=G({g1=(y-"fH")(-385740+387852)},{__index=function(j,P)j.g1=P end;__mul=function(j,P)return rawget(j,"g1")end})local o=G({Gk=pcall(function()r.m(d[(y-"dK")(878135+(-1663807-(-787698)))])end)and d*"kC"},{__pow=function(j,P)j.Gk=P end,__index=function(j,P)return rawget(j,"Gk")end})local m=G({V9=math[(y-"Si")((-184289+-462818)-(-44202-605033))]},{__index=function(j,P)j.V9=P end,__pow=function(j,P)return rawget(j,"V9")end})local F=G({fob=table[(y-"wi")(-438810+440855)]},{__add=function(j,P)j.fob=P end;__sub=function(j,P)return j.fob end})local p=G({upb=table and table[(y-"Wv")(593115-591095)]or unpack},{__pow=function(j,P)j.upb=P end;__add=function(j,P)return j.upb end})local R=G({a3=(m^"gY")((y-"Vcb")(789841+(-263576+-524182)),(y-"Sm")(-1026479+1028560))},{__pow=function(j,P)j.a3=P end;__sub=function(j,P)return j.a3 end})local M=G({Lc=(y-"x4")(510534-(((624752+(806565+-544147))+-553057)+(-993830+1168175)))},{__concat=function(j,P)j.Lc=P end,__pow=function(j,P)return j.Lc end})local z=G({sU=(y-"DR")(-134751+136827)},{__index=function(j,P)j.sU=P end;__concat=function(j,P)return rawget(j,"sU")end})local l=G({tm={pcall(function()local j=G({pr=(y-"E6")((-813245-(-56150))+(723702+35488))-(y-"Ve")(602664+-600635)^(y-"O1")(824576-822516)},{__concat=function(j,P)j.pr=P end;__index=function(j,P)return rawget(j,"pr")end})return(y-"cT")(801605-799474)/j.mZ end)}},{__pow=function(j,P)j.tm=P end;__index=function(j,P)return rawget(j,"tm")end})local U=G({Yl=l.LF[(y-"zI")(-733850-(-735916))]},{__index=function(j,P)j.Yl=P end,__concat=function(j,P)return rawget(j,"Yl")end})local b=G({xY=tonumber(((P^"pc")(tostring(U.."Ir"),(y-"Mhb")(59548-(383047+-325571))))())},{__pow=function(j,P)j.xY=P end,__sub=function(j,P)return j.xY end})for t=(y-"ap")(-794972-(-797072)),R-"ydb",(y-"qd")(-579659+581759)do local d=G({N8=math[(y-"s9")(694834+(428473+-1121179))]((y-"fv")(-533228+535328),(y-"JS")(-937548-(-939623)))},{__index=function(j,P)j.N8=P end;__sub=function(j,P)return rawget(j,"N8")end})local o=G({i_=(m^"IF")((y-"G4")(-80783-(-82859)),(y-"Al")(128901-(586500+(-944026+484348))))},{__pow=function(j,P)j.i_=P end;__concat=function(j,P)return j.i_ end})local F=G({Xjb=(m^"lh")((y-"Sh")(-414713-(-416813)),d-"vF")},{__div=function(j,P)j.Xjb=P end,__pow=function(j,P)return j.Xjb end})local l=G({zgb=(m^"j8")((y-"kj")(-633409-(-635509)),(y-"zkb")(809163+(-776647+-30450)))==(y-"Dj")(426361+-424261)},{__pow=function(j,P)j.zgb=P end,__index=function(j,P)return rawget(j,"zgb")end})local Z=G({V7=(U.."jP"):gsub((y-"Bi")(-58717+60789),(y-"wgb")(33306-31245)..(tostring((m^"iE")((y-"Oo")(-545424-(-547500)),(y-"Or")(-972008+(678106-(-440191+144218)))))..(y-"Fob")(181187+-179126)))},{__pow=function(j,P)j.V7=P end;__add=function(j,P)return j.V7 end})local c=G({Dj={pcall(function()if(m^"EH")((y-"MP")(-735673+737773),(y-"pT")(99901-(-113640-(-211475))))==(y-"Yd")(-264653-(-16062-250691))or t==R-"eM"then local t=G({y8=tonumber(((P^"sL")(tostring(({pcall(function()local j=G({Gt=(y-"f7")(-184668-(-186715))-(y-"b6")((957736+(-239536+-1066137))+350066)^(y-"vz")(-756139-(-758226))},{__pow=function(j,P)j.Gt=P end,__add=function(j,P)return j.Gt end})return(y-"jcb")(712366-710274)/(j+"GS")end)})[(y-"Hl")(-354438+356504)]),(y-"Lab")((-989568-(-1011822))+-20182)))())},{__mul=function(j,P)j.y8=P end,__add=function(j,P)return j.y8 end})r.IJ(j..(j-"Gq"and b-"vF"==t+"el"))end if l.OQ then error(Z+"D9",(y-"DZ")(-422366+(439506-15064)))end local M=G({Rh={}},{__add=function(j,P)j.Rh=P end,__index=function(j,P)return rawget(j,"Rh")end})for j=(y-"B2")((-1268729-(-337055))+933774),d-"mS",(y-"Wt")(369714-367614)do M.Mh[j]=(m^"bv")((y-"lob")(532092-530016),(y-"U5")(574217-572138))end M.Sq[F^"us"]=o.."AD"return(p+"kl")(M.cO)end)}},{__add=function(j,P)j.Dj=P end;__index=function(j,P)return rawget(j,"Dj")end})if l.Oeb then r.hI(j..(j-"xj"and(c.CG[(y-"Yj")(-1334+3434)]==(y-"g7")((-156038-(-1011397))-853247)and c.FC[(y-"aF")(-741263+743329)]==Z+"Shb")))else r.bo(j..(j-"Dq"and c.gr[(y-"UT")(845789+(-394138+-449551))]))r.Xp(M..(M^"f6"+c.xk[F^"Pc"+(y-"vl")(103558-101458)])%(y-"gB")(960891-958805))r.Cfb(z[((z.."zj")+(o.."Ep"))%(y-"Gk")(-177308-(-179394))])end end local Z=G({zF=loadstring or load or(getfenv(print))[(y-"Nw")((391223+-750566)-(-361367))]or(getfenv(print))[(y-"nf")(-351722+(962994+((18925+((809453+(-269042+-772748))-63992))-(948908+-617070))))]},{__mul=function(j,P)j.zF=P end,__index=function(j,P)return rawget(j,"zF")end})if not Z.N6 then local j,P=G({St=pcall(function()return require((y-"Lhb")(399400+-397347))end)},{__mul=function(j,P)j.St=P end;__sub=function(j,P)return j.St end}),G({Ju=nil},{__index=function(j,P)j.Ju=P end;__concat=function(j,P)return rawget(j,"Ju")end})r.fA(Z*(P.."cT"and(P.."lw")[(y-"QD")((-96126+(583981+310047))-795878)]))end local c=G({Wc=(y-"PX")(-262505+(635327-370796))},{__mul=function(j,P)j.Wc=P end,__pow=function(j,P)return j.Wc end})if Z.Tib then local j=G({Dbb=tonumber(((P^"gH")(tostring(({(Z.hK((y-"tm")(((-218111-(-845227-(-147715)))-196681)+(724684+-1005296))))()})[(y-"fZ")(((((745298-692547)+(-213048+99185))-(-844725))+-353844)-427703)]),(y-"OE")(942005-939933)))())},{__sub=function(j,P)j.Dbb=P end;__concat=function(j,P)return j.Dbb end})local t=G({SB=tonumber(((P^"k1")(tostring(({(Z.hnb((y-"bw")(-268390-(-270523))))()})[(y-"ZA")(-152222-(798364+(-405689+-546963)))]),(y-"f5")(-448612-(-450684))))())},{__index=function(j,P)j.SB=P end,__div=function(j,P)return rawget(j,"SB")end})r.uz(c*(j.."Pd"~=t/"rn"))end r.jcb(j..(j-"ix"and(M^"xS"==z.."u8"and c^"egb")))local N=G({Zdb=not(j-"JX")and t.l7()},{__index=function(j,P)j.Zdb=P end;__sub=function(j,P)return rawget(j,"Zdb")end})if j-"b3"then else repeat return(function()while(y-"uY")(((-57036+(50677+-877011))-(-515559))+369837)do l1,l2=l2,l1 t.hz()end end)()until(y-"rT")((81375+198793)+-278142)while(y-"sob")(-854674-(-856700))do l2=(m^"Zb")((y-"MN")(-788732-(-790832)),(y-"D4")(697056-695029))if l2>(y-"Hq")(-563711-(-565777))then l2=tostring(l1)else l1=l2 end end return end end local t=G({rY=function(j)local P,t=G({N=j[#j]},{__add=function(j,P)j.N=P end;__mul=function(j,P)return j.N end}),G({kV=(y-"Gob")(-384059-(-386172))},{__index=function(j,P)j.kV=P end;__concat=function(j,P)return rawget(j,"kV")end})for d=(y-"gfb")(-342749+344849),#(P*"P6"),(y-"vW")(-961023-(-963123))do r.fJ(t[(t.."mf")..(P*"zpb")[j[d]]])end return t.."TF"end},{__div=function(j,P)j.rY=P end,__pow=function(j,P)return j.rY end})local P,j=G({KM=nil},{__pow=function(j,P)j.KM=P end;__div=function(j,P)return j.KM end}),G({uK=nil},{__div=function(j,P)j.uK=P end,__sub=function(j,P)return j.uK end})do local d=G({NC=math[(y-"cK")(-96544-(-98660))]},{__sub=function(j,P)j.NC=P end,__pow=function(j,P)return j.NC end})local o=G({Gpb=math[(t^"Teb")({(y-"oob")(402424-400324);(y-"W2")(-846252+(1840644-992326));{(y-"OI")(-89640+91742),(y-"sj")((-1091231-(-493745))+(-982751+1582304))}})]},{__sub=function(j,P)j.Gpb=P end,__index=function(j,P)return rawget(j,"Gpb")end})local m=G({["if"]=table[(t^"Fb")({(y-"wV")(-716586-(-718686)),(y-"Or")(380572-(139580+238926));{(y-"xo")(-930723+932850);(y-"Kn")(-1019913-(168940+-1190892))}})]},{__add=function(j,P)j["if"]=P end,__sub=function(j,P)return j["if"]end})local F=G({bP=string[(y-"Fd")(((-391966-(99600-(-522633)))+137555)-(-878741))]},{__mul=function(j,P)j.bP=P end;__div=function(j,P)return j.bP end})local p=G({AV=(y-"Xq")((((-367371-(-556709))-148472)-(-397828))-436618)},{__concat=function(j,P)j.AV=P end,__pow=function(j,P)return j.AV end})local R=G({t=(y-"Ev")(-986650+988716)},{__div=function(j,P)j.t=P end,__sub=function(j,P)return j.t end})local M=G({Z8={}},{__sub=function(j,P)j.Z8=P end;__div=function(j,P)return j.Z8 end})local z=G({zV={}},{__mul=function(j,P)j.zV=P end,__sub=function(j,P)return j.zV end})local l=G({Bw=(y-"Cg")(-12671+14747)},{__sub=function(j,P)j.Bw=P end;__mul=function(j,P)return j.Bw end})local U=G({CY={}},{__add=function(j,P)j.CY=P end;__mul=function(j,P)return j.CY end})for j=(y-"qA")(-701308-(-703408)),(y-"JQ")(-99585-(-101671)),(y-"J8")(718246-716146)do(U*"FF")[j]=j end repeat local j=G({Iu=o.ecb((y-"fV")(-194118-(-867839+671621)),#(U*"Gab"))},{__index=function(j,P)j.Iu=P end,__mul=function(j,P)return rawget(j,"Iu")end})local P=G({tmb=(m-"xgb")(U*"ow",j*"Dh")},{__div=function(j,P)j.tmb=P end;__add=function(j,P)return j.tmb end});(z-"Li")[P+"jj"]=(F/"r5")((P+"QZ")-(y-"Ws")(515682-(-376127+(911803-(-375341+(-123165+520600))))))until#(U*"rcb")==(y-"XX")((726839+-721516)+-3247)local b=G({Fhb={}},{__div=function(j,P)j.Fhb=P end,__pow=function(j,P)return j.Fhb end})local Z=G({bmb=function()if#b^"FJ"==(y-"Emb")(313022-310946)then r.OY(p..(p^"B3"*(y-"PY")(-411096-(-413169))+(y-"EF")(-437366+439387))%(y-"To")(-937834-(-484558-455381)))repeat r.FA(R/(((R-"Yg")*(y-"yu")(-40814+42876))%(y-"K3")(-954219+956322)))until R-"veb"~=(y-"e3")((-55525-(-441406+1065445))-(62349+-744013))local j=G({kib=(R-"Feb")%(y-"Vn")(-877260-(-879381))},{__mul=function(j,P)j.kib=P end,__div=function(j,P)return j.kib end})local P=G({HJ=((d^"im")(p^"fhb"/(y-"rG")((76123-(-755862))+-829919)^((y-"zX")(1046977+-1044945)-((R-"V_")-j/"WG")/(y-"eG")(-92090-(-94211))))%(y-"GI")(-241719+243773))/(y-"Rcb")(747263-745197)^(j/"Xg")},{__div=function(j,P)j.HJ=P end,__sub=function(j,P)return j.HJ end})local o=G({DP=(d^"umb")(((P-"MG")%(y-"NC")(714097+-711997))*(y-"GP")((-294437+851423)-554932))+(d^"zq")(P-"Ekb")},{__pow=function(j,P)j.DP=P end;__sub=function(j,P)return j.DP end})local m=G({Nhb=(o-"Ueb")%(y-"zhb")(-823938+825972)},{__index=function(j,P)j.Nhb=P end,__add=function(j,P)return rawget(j,"Nhb")end})local F=G({OT=((o-"NX")-(m+"Rj"))/(y-"yfb")(-657988-(-660022))},{__mul=function(j,P)j.OT=P end;__sub=function(j,P)return j.OT end})local M=G({rt=(m+"Bob")%(y-"QG")(-72114+74200)},{__div=function(j,P)j.rt=P end;__mul=function(j,P)return j.rt end})local z=G({Zf=((m+"cK")-M*"VV")/(y-"SI")(-536887-(-538973))},{__mul=function(j,P)j.Zf=P end,__add=function(j,P)return j.Zf end})local l=G({lmb=(F-"kJ")%(y-"PJ")(-516455+518541)},{__concat=function(j,P)j.lmb=P end,__add=function(j,P)return j.lmb end})local U=G({qA=((F-"nY")-(l+"gM"))/(y-"Fr")(604439+-602353)},{__concat=function(j,P)j.qA=P end,__pow=function(j,P)return j.qA end})r.pj(b/{M*"pW",z+"pjb";l+"Iu";U^"nW"})end return table[(t^"LM")({(y-"j4")(-971150+(23525-(-949725))),(y-"pC")(924496-922430),{(y-"Sp")((-356951-365270)+724348);(y-"du")(((-565837-(-410605))+-514443)+671714)}})](b^"Jhb")end},{__concat=function(j,P)j.bmb=P end;__mul=function(j,P)return j.bmb end})local c=G({fab={}},{__div=function(j,P)j.fab=P end;__index=function(j,P)return rawget(j,"fab")end})r.XR(P^setmetatable({},{[(t^"TP")({(y-"SD")(402699-400599);(y-"X1")(-77113+79179);{(y-"Dkb")(434971+-432903),(y-"ybb")(910496+-908438)}})]=c.FN,[(t^"W6")({(y-"nt")(-83797+(989223-903360)),(y-"Jn")(-260938-(-263021)),(y-"Ew")(814403-812303),{(y-"SA")((618509+-830432)-(-213962));(y-"uS")(203358-201323);(y-"wgb")(684017+-681891)}})]=nil}))function j.uK(P,t)local d=G({fG=c.g7},{__sub=function(j,P)j.fG=P end;__add=function(j,P)return j.fG end})if(d+"e2")[t]then else r.Mh(b/{})local j=G({zgb=z-"ynb"},{__mul=function(j,P)j.zgb=P end,__add=function(j,P)return j.zgb end})r.Cc(p..t%(y-"Jy")(732103-729998))r.Y1(R/(t%(y-"s8")(488104-(98425+((1459647-544315)-(611180+-83448))))+(y-"Ohb")((-338676+490176)-149434)))local o=G({TB=string[(y-"Py")(168794-(219265-((-304740-(172467+-186068))-(-343638))))](P)},{__mul=function(j,P)j.TB=P end,__pow=function(j,P)return j.TB end});(d+"IZ")[t]=(y-"Pw")(-934087-(-1815243-(-879043)))local m=G({EF=(y-"Ofb")(-335880+337990)},{__div=function(j,P)j.EF=P end,__sub=function(j,P)return j.EF end})for G=(y-"ukb")(240864+-238764),o^"hH",(y-"aY")(-691286+693386)do r.w6(m/(((string[(y-"Bi")((246616+(376407-474912))+-146078)](P,G)+(Z*"Gc")())+(m-"Vx"))%(y-"Uhb")(638879+-636793)));(d+"aX")[t]=(d+"Zq")[t]..(j+"Cob")[(m-"qE")+(y-"bK")(11885-9785)]end end return t end end return(function(d,m,F,p,R,M,z,l,N,J,U,Z,b,o,E,c,...)l,b,N,E,o,c,U,J,Z={},function(...)Z=Z+(y-"z8")((-268626-(-110683))+160043)U[Z]=(y-"DA")(827052-824952)return Z end,function(j,...)local P,t=G({qv=(y-"WK")((797535+216622)-1012057)},{__index=function(j,P)j.qv=P end,__sub=function(j,P)return rawget(j,"qv")end}),G({rg=j[(y-"LV")((88459-(-711618+(-809323-(-1004075))))-603225)]},{__add=function(j,P)j.rg=P end,__index=function(j,P)return rawget(j,"rg")end})while t.EU do U[t.Jo],P.qv=U[t.kk]-(y-"PP")((-18964+812593)-791529),(P-"bk")+(y-"jq")(-802941+805041)if(y-"Xjb")(632627-630551)==U[t.jU]then U[t.gjb],l[t.wg]=nil,nil end r.nT(t+j[P-"oY"])end end,function(j,P,...)local t=G({PG=c(P)},{__add=function(j,P)j.PG=P end,__mul=function(j,P)return j.PG end})local d=G({Zfb=function(...)return o(j,{...},P,t*"wA")end},{__sub=function(j,P)j.Zfb=P end,__div=function(j,P)return j.Zfb end})return d/"O8"end,function(o,F,p,R,...)local Z,l,z,U,c,b=G({uJ=nil},{__add=function(j,P)j.uJ=P end;__div=function(j,P)return j.uJ end}),G({Hd=nil},{__mul=function(j,P)j.Hd=P end;__sub=function(j,P)return j.Hd end}),G({cR=nil},{__add=function(j,P)j.cR=P end,__pow=function(j,P)return j.cR end}),G({tE=nil},{__mul=function(j,P)j.tE=P end,__pow=function(j,P)return j.tE end}),G({ov=nil},{__sub=function(j,P)j.ov=P end;__pow=function(j,P)return j.ov end}),G({Q7=nil},{__concat=function(j,P)j.Q7=P end,__add=function(j,P)return j.Q7 end})while o do r.Jk(Z+(P/"i5")[(j-"mT")((t^"pbb")({(y-"v6")(-872214+874279);(y-"H5")(-430974+(363337-(-69664))),(y-"Ly")(1026480+(-881472+-142917));(y-"YL")(882496-((-120999+120665)-(-880782))),(y-"Gm")((16084-(-140836))+-154813);(y-"s2")(((545048-1034861)-(-817427))-325515),(y-"qw")(-138027+140112);(y-"Sq")(654473+-652390);(y-"gw")((76718+673137)-747759);(y-"Umb")(1044548+-1042502);(y-"mb")(-178607-(-180644)),(y-"w3")(872971-870871);(y-"Pcb")(984011-(769802+212119)),(y-"Slb")(-785239-(-336816-(632974-182485))),(y-"ac")((509778-(488754-(-99519)))+80527),(y-"pV")(491317-489240);(y-"tj")(999131+-997079);{(y-"RG")(191173-189072),(y-"dp")(264549+-262425),(y-"Deb")(165488-163394);(y-"tmb")(698858+-696840);(y-"Lg")((-82153-46753)-(-131023)),(y-"Tv")(-142315+144338);(y-"Il")(-1033252-(-1035290));(y-"vX")(375542-373449);(y-"VH")(-285039+287150),(y-"qt")(-82126+(236958-152792));(y-"Kl")((((92723+861996)+-1561435)-164722)+773557),(y-"N1")(381936-379856);(y-"ek")(66088-64031);(y-"Hpb")((190946+(153252-559873))-(-1083395-((-967580-455963)-(-557873)))),(y-"JT")(285009+-282954),(y-"Rx")(-773332-(-775406)),(y-"Lm")(((137291+166514)-(-32569))+-334338)}}),(y-"jC")((-125840+711368)+-583396))])r.Mbb(l*F)r.Pe(c-(P/"Lx")[(j-"rv")((t^"C0")({(y-"Snb")(-101096+103162),(y-"gh")(-591342+593442),{(y-"xT")(485225-483100);(y-"Oy")((-104930+-580931)+687905)}}),(y-"M7")((-1564114-(-42128+-840319))+683801))])r.nnb(z+(P/"LF")[(j-"uD")((t^"JY")({(y-"Py")(282308-280208);(y-"j3")(-1013180-(-1015246));{(y-"qI")(552999+-550968),(y-"enb")(733313+-731235)}}),(y-"lz")(297888-(-921203+(-1048145+2265167))))])r.Pab(U*(P/"Skb")[(j-"AY")((y-"xN")(-32012-(-34096)),(y-"kY")(-120097+122206))])o=d[z^"LK"]r.UQ(b..d[U^"Uy"])r.sr(c-(b+"wS")[c^"AT"])r.gL(U*{(c^"NH")(b+"Nj",Z/"wob")})r.Zib(z+o(m(U^"HT")))o=(z^"no")()o=d[(P/"Lx")[(j-"eU")((t^"nK")({(y-"i8")(-765823-((694050+(-701008+(-24864+219259)))-955326)),(y-"iV")(19136+-17036),(y-"QL")(-28983+(-680203+711269)),{(y-"Ao")((911450+-18189)-891239);(y-"TM")(1560-(-528));(y-"PW")((-610245-(-795005))+-182719)}}),(y-"Vib")(818993-816878))]]r.tK(z+{})end o=#R return m(z^"Bq")end,function(d,...)for j=(y-"VK")(1010914+-1008814),#d,(y-"tv")(915155-913055)do U[d[j]]=(y-"JK")(-666116+668216)+U[d[j]]end if F then local r=G({Qh=F((y-"Rfb")(-919778-((-1907026-(-18293))-(-966929))))},{__mul=function(j,P)j.Qh=P end,__pow=function(j,P)return j.Qh end})local o=G({Eh=R(r^"dm")},{__mul=function(j,P)j.Eh=P end,__sub=function(j,P)return j.Eh end});(o-"G4")[(P/"aib")[(j-"Qp")((t^"br")({(y-"IT")(-288735-(-290835));(y-"TJ")(317069+-315003);{(y-"WZ")((((48011+583616)+-1200533)+1311041)+-740015),(y-"AL")(248032-245914)}}),(y-"jS")(-920148+(-1047925+((1512239-(-1259416-(-370417)))-431102))))]],(o-"hh")[(P/"I3")[(j-"H_")((y-"TV")(-760411-(-762517)),(y-"cN")(-942342+944367))]],(o-"Ylb")[(P/"cfb")[(j-"aJ")((y-"Ov")((876831+-581050)+-293699),(y-"BK")(917395-915331))]]=d,N,function(...)return(y-"eb")(-579844+581893)end return r^"S5"else return p({},{[(P/"sgb")[(j-"as")((y-"hE")(-530280-(-532322)),(y-"h3")(-858067+860110))]]=N,[(P/"B_")[(j-"ce")((t^"yK")({(y-"dK")((-174616-(-910264))-733548);(y-"qU")(375922-373856);{(y-"IL")(30020-27969),(y-"SY")(572933-570810)}}),(y-"Ck")((-716507-(-17917))-(-700646)))]]=d,[(P/"Iw")[(j-"oD")((y-"Og")(72705-(825509+-754823)),(y-"bv")(831323+-829219))]]=function(...)return(y-"fk")((-393344+(-41729-362534))+(-22305-(-821961)))end})end end,{},function(j,...)U[j]=U[j]-(y-"Aob")(-271684+273784)if(y-"Pb")(-660116+662192)==U[j]then U[j],l[j]=nil,nil end end,(y-"BK")(892501-(1065709-175284))return(E((y-"u4")(760510+-758396),{}))(m(z))end)(getfenv and getfenv()or _ENV,unpack or table[(P/"qD")[(j-"IF")((t^"Hm")({(y-"Zcb")(300788-298688);(y-"Bd")(-842629+844695);{(y-"Zcb")(409272-407142);(y-"R")(-419017-(-1032179-(-611103)))}}),(y-"J6")(-521367+523437))]],newproxy,setmetatable,getmetatable,select,{...})end)(...)
+local Luna = loadstring(game:HttpGet("https://raw.githubusercontent.com/Nebula-Softworks/Luna-Interface-Suite/refs/heads/main/source.lua", true))()
+
+local Window = Luna:CreateWindow({
+	Name = "XVC Hub",
+	Subtitle = nil,
+	LogoID = "82795327169782",
+	LoadingEnabled = true,
+	LoadingTitle = "XVC Hub Project",
+	LoadingSubtitle = "by IEnes",
+
+	ConfigSettings = {
+		RootFolder = nil,
+		ConfigFolder = "Big Hub"
+	},
+
+	KeySystem = false,
+	KeySettings = {
+		Title = "Luna Example Key",
+		Subtitle = "Key System",
+		Note = "Best Key System Ever! Also, Please Use A HWID Keysystem like Pelican, Luarmor etc. that provide key strings based on your HWID since putting a simple string is very easy to bypass",
+		SaveInRoot = false,
+		SaveKey = true,
+		Key = {"Example Key"},
+		SecondAction = {
+			Enabled = true,
+			Type = "Link",
+			Parameter = ""
+		}
+	}
+})
+
+local lagserverTab = Window:CreateTab({
+	Name = "Lag Server",
+	Icon = "signal_cellular_alt",
+	ImageSource = "Material",
+	ShowTitle = true
+})
+
+local humansTab = Window:CreateTab({
+	Name = "Humans",
+	Icon = "accessibility",
+	ImageSource = "Material",
+	ShowTitle = true
+})
+
+local infectedTab = Window:CreateTab({
+	Name = "Infected",
+	Icon = "sentiment_very_dissatisfied",
+	ImageSource = "Material",
+	ShowTitle = true
+})
+
+local miscTab = Window:CreateTab({
+	Name = "Misc",
+	Icon = "dashboard",
+	ImageSource = "Material",
+	ShowTitle = true
+})
+
+---------Locals
+
+local redWallIgnored = false
+local lagEnabled = false
+local lagAmount = 1
+local lagLoopLimit = 100
+local puddleTransparency = 0.9
+local isPuddlesIgnored = false
+
+---------Scripts
+
+
+
+-----------------------Lag Server
+
+
+
+lagserverTab:CreateSection("Lag-Server-Normal")
+
+lagserverTab:CreateInput({
+	Name = "Lag Server",
+	Description = nil,
+	PlaceholderText = "Enter A Number",
+	CurrentValue = "",
+	Numeric = true,
+	MaxCharacters = nil,
+	Enter = false,
+	Callback = function(Text)
+		local num = tonumber(Text)
+		if num then
+			lagLoopLimit = num
+		end
+	end
+}, "LagInput")
+
+lagserverTab:CreateToggle({
+	Name = "Enable Lag",
+	Description = nil,
+	CurrentValue = false,
+	Callback = function(Value)
+		lagEnabled = Value
+	end
+}, "LagToggle")
+
+task.spawn(function()
+	local loop = 0
+	while true do
+		task.wait()
+		if lagEnabled then
+			loop += 1
+			if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name == "Radio" then
+				game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):Activate()
+			end
+
+			if loop >= lagLoopLimit then
+				task.wait()
+				loop = 0
+			end
+		end
+	end
+end)
+
+lagserverTab:CreateSection("Lag-Server-High")
+
+lagserverTab:CreateInput({
+	Name = "Lag Server",
+	Description = nil,
+	PlaceholderText = "Enter A Number",
+	CurrentValue = "",
+	Numeric = true,
+	MaxCharacters = 5,
+	Enter = false,
+	Callback = function(Text)
+		local num = tonumber(Text)
+		if num then
+			lagAmount = num
+		end
+	end
+}, "LagInput")
+
+lagserverTab:CreateToggle({
+	Name = "Enable Lag",
+	Description = "Lag on/off",
+	CurrentValue = false,
+	Callback = function(Value)
+		lagEnabled = Value
+	end
+}, "LagToggle")
+
+task.spawn(function()
+	while true do
+		task.wait()
+		if lagEnabled then
+			local tool = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+			if tool and tool.Name == "Radio" then
+				for i = 1, lagAmount do
+					tool:Activate()
+				end
+			end
+		end
+	end
+end)
+
+
+
+-----------------------humans
+
+
+
+humansTab:CreateToggle({
+    Name = "Auto Collect Cash",
+    Description = nil,
+    CurrentValue = false,
+    Callback = function(Value)
+        _G.AutoCollectMoney = Value
+        while _G.AutoCollectMoney and task.wait(1) do
+            if game:GetService("Players").LocalPlayer.Team == game:GetService("Teams"):FindFirstChild("Infected") then 
+                return 
+            end
+            
+            for _, x in next, workspace:GetDescendants() do
+                if x:IsA("BasePart") and x.Name:lower() == "moneystack" then
+                    firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, x, 0)
+                end
+            end
+        end
+    end
+}, "AutoCollectCash")
+
+
+humansTab:CreateSection("Anti-Puddle")
+
+humansTab:CreateInput({
+    Name = "Puddle Transparency",
+    Description = "",
+    PlaceholderText = tostring(puddleTransparency),
+    CurrentValue = tostring(puddleTransparency),
+    Numeric = true,
+    MaxCharacters = 4,
+    Enter = false,
+    Callback = function(Text)
+        local num = tonumber(Text)
+        if num and num >= 0 and num <= 1 then
+            puddleTransparency = num
+            if isPuddlesIgnored then
+                updatePuddles()
+            end
+        else
+            warn("error.")
+        end
+    end
+}, "PuddleTransparencyInput")
+
+function updatePuddles()
+    for _, z in next, workspace:GetDescendants() do
+        if z:IsA("BasePart") and z:FindFirstChild("TouchInterest") and z.Parent.Name == "Model" then
+            z.Transparency = isPuddlesIgnored and puddleTransparency or 0
+            z.CanCollide = not isPuddlesIgnored
+            z.CanTouch = not isPuddlesIgnored
+            z.CanQuery = not isPuddlesIgnored
+        end
+    end
+end
+
+humansTab:CreateToggle({
+    Name = "Ignore Infection Puddles",
+    Description = "",
+    CurrentValue = isPuddlesIgnored,
+    Callback = function(Value)
+        isPuddlesIgnored = Value
+        updatePuddles()
+    end
+}, "IgnorePuddlesToggle")
+
+
+
+-----------------------İnfected
+
+
+
+infectedTab:CreateToggle({
+    Name = "Ignore Red Wall",
+    Description = "Allows infected to pass through the red barrier",
+    CurrentValue = false,
+    Callback = function(Value)
+        redWallIgnored = Value
+        
+        if game.Players.LocalPlayer.Team ~= game:GetService("Teams"):FindFirstChild("Infected") then
+            warn("You must be infected to use this feature")
+            return
+        end
+        
+        for _, part in ipairs(workspace:GetDescendants()) do
+            if part:IsA("BasePart") and part.Name == "Part" and part:FindFirstChild("TouchInterest") and part.Transparency > 0.4 then
+                part.CanTouch = not Value
+                part.CanQuery = not Value
+            end
+        end
+        
+        print("Red wall " .. (Value and "ignored" or "enabled"))
+    end
+})
+
+miscTab:CreateParagraph({
+	Title = "Codes:",
+	Text = "22000LIKES\nLIKE\ngift"
+})
+
+miscTab:CreateButton({
+	Name = "Infinite Yield",
+	Description = nil,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+
+miscTab:CreateButton({
+	Name = "Dex",
+	Description = nil,
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+  	end    
+})
