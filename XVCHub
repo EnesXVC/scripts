@@ -160,6 +160,77 @@ task.spawn(function()
 	end
 end)
 
+lagserverTab:CreateSection("Others")
+
+lagserverTab:CreateButton({
+	Name = "Lag The Server Small (not toggle)",
+	Description = nil,
+	Callback = function()
+		game.Chat.BubbleChatEnabled = false
+game.Players.LocalPlayer.PlayerGui.BubbleChat:Destroy()
+
+local loop = 0
+while true do 
+loop +=1
+
+if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name == "Radio" then
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):Activate()
+end
+
+ if loop >= 10 then
+task.wait()
+loop = 0
+  end
+ end
+  	end    
+})
+
+lagserverTab:CreateButton({
+	Name = "Lag The Server Normal (not toggle)",
+	Description = nil,
+	Callback = function()
+		game.Chat.BubbleChatEnabled = false
+game.Players.LocalPlayer.PlayerGui.BubbleChat:Destroy()
+
+local loop = 0
+while true do 
+loop +=1
+
+if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name == "Radio" then
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):Activate()
+end
+
+ if loop >= 100 then
+task.wait()
+loop = 0
+  end
+ end
+  	end    
+})
+
+lagserverTab:CreateButton({
+	Name = "Lag The Server High (not toggle)",
+	Description = nil,
+	Callback = function()
+		game.Chat.BubbleChatEnabled = false
+game.Players.LocalPlayer.PlayerGui.BubbleChat:Destroy()
+
+local loop = 0
+while true do 
+loop +=1
+
+if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name == "Radio" then
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):Activate()
+end
+
+ if loop >= 1000 then
+task.wait()
+loop = 0
+  end
+ end
+  	end    
+})
+
 
 
 -----------------------humans
