@@ -1,0 +1,152 @@
+local Luna = loadstring(game:HttpGet("https://pastebin.com/raw/Y8wBJLVt", true))()
+
+local Window = Luna:CreateWindow({
+	Name = "XVC Hub", -- This Is Title Of Your Window
+	Subtitle = "100 Players Impossible Maze", -- A Gray Subtitle next To the main title.
+	LogoID = "6026568229", -- The Asset ID of your logo. Set to nil if you do not have a logo for Luna to use.
+	LoadingEnabled = true, -- Whether to enable the loading animation. Set to false if you do not want the loading screen or have your own custom one.
+	LoadingTitle = "XVC Hub", -- Header for loading screen
+	LoadingSubtitle = "by IEnes", -- Subtitle for loading screen
+
+	ConfigSettings = {
+		RootFolder = nil, -- The Root Folder Is Only If You Have A Hub With Multiple Game Scripts and u may remove it. DO NOT ADD A SLASH
+		ConfigFolder = "Big Hub" -- The Name Of The Folder Where Luna Will Store Configs For This Script. DO NOT ADD A SLASH
+	},
+
+	KeySystem = false, -- As Of Beta 6, Luna Has officially Implemented A Key System!
+	KeySettings = {
+		Title = "Luna Example Key",
+		Subtitle = "Key System",
+		Note = "Best Key System Ever! Also, Please Use A HWID Keysystem like Pelican, Luarmor etc. that provide key strings based on your HWID since putting a simple string is very easy to bypass",
+		SaveInRoot = false, -- Enabling will save the key in your RootFolder (YOU MUST HAVE ONE BEFORE ENABLING THIS OPTION)
+		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+		Key = {""}, -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
+		SecondAction = {
+			Enabled = true, -- Set to false if you do not want a second action,
+			Type = "Link", -- Link / Discord.
+			Parameter = "" -- If Type is Discord, then put your invite link (DO NOT PUT DISCORD.GG/). Else, put the full link of your key system here.
+		}
+	}
+})
+
+
+local coinsTab = Window:CreateTab({
+	Name = "Get Free Coins",
+	Icon = "view_in_ar",
+	ImageSource = "Material",
+	ShowTitle = true
+})
+
+local itemsTab = Window:CreateTab({
+	Name = "Get İtems",
+	Icon = "view_in_ar",
+	ImageSource = "Material",
+	ShowTitle = true
+})
+
+local CharacterTab = Window:CreateTab({
+	Name = "Character",
+	Icon = "view_in_ar",
+	ImageSource = "Material",
+	ShowTitle = true
+})
+
+coinsTab:CreateButton({
+	Name = "Get 100m Coins",
+	Description = nil,
+    	Callback = function()
+            local args = {
+                [1] = {
+                    ["gift_name"] = "gift100m",
+                    ["gift_display_name"] = "100 coins!",
+                    ["gift_amount"] = 100000000,
+                    ["gift_time"] = 300,
+                    ["gift_function"] = "coins",
+                    ["gift_icon"] = 17221975182
+                }
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeService"):WaitForChild("RF"):WaitForChild("recieve_gift"):InvokeServer(unpack(args))
+    	end
+})
+
+coinsTab:CreateButton({
+	Name = "Get inf Coins",
+	Description = nil,
+    	Callback = function()
+            local args = {
+                [1] = {
+                    ["gift_name"] = "gift",
+                    ["gift_display_name"] = "100 coins!",
+                    ["gift_amount"] = 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                    ["gift_time"] = 300,
+                    ["gift_function"] = "coins",
+                    ["gift_icon"] = 17221975182
+                }
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeService"):WaitForChild("RF"):WaitForChild("recieve_gift"):InvokeServer(unpack(args))
+    	end
+})
+
+itemsTab:CreateButton({
+	Name = "Get Energy drink",
+	Description = nil,
+    	Callback = function()
+            local args = {
+                [1] = {
+                    ["gift_display_name"] = "Free Energy Drink!",
+                    ["gift_name"] = "giftEnergydrink",
+                    ["gift_time"] = 1200,
+                    ["item_name"] = "Energy drink",
+                    ["gift_amount"] = "energy bottle",
+                    ["gift_function"] = "item",
+                    ["gift_icon"] = 16194061537
+                }
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeService"):WaitForChild("RF"):WaitForChild("recieve_gift"):InvokeServer(unpack(args))
+    	end
+})
+
+itemsTab:CreateButton({
+	Name = "Get Freeze Gun",
+	Description = nil,
+    	Callback = function()
+            local args = {
+                [1] = {
+                    ["gift_name"] = "giftfreezegun69",
+                    ["item_delete_time"] = 600000000000,
+                    ["gift_amount"] = "100000 min",
+                    ["item_product_id"] = 872262844,
+                    ["gift_time"] = 180000,
+                    ["item_name"] = "Freeze Gun",
+                    ["gift_icon"] = 16806178679,
+                    ["gift_function"] = "temporary_item",
+                    ["gift_display_name"] = "Freeze Gun for 100000 minutes"
+                }
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeService"):WaitForChild("RF"):WaitForChild("recieve_gift"):InvokeServer(unpack(args))
+    	end
+})
+
+CharacterTab:CreateButton({
+	Name = "Get Nugget",
+	Description = nil,
+	Callback = function()
+		local randomID = tostring(math.random(1000, 999999))
+		local args = {
+			[1] = {
+				["gift_name"] = "giftgetnugget_" .. randomID,
+				["gift_display_name"] = "Free Nugget Morph for 200 minutes!",
+				["gift_time"] = 200,
+				["gift_amount"] = "200 min",
+				["gift_function"] = "free_nugget",
+				["gift_icon"] = 107025403124764
+			}
+		}
+		
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeService"):WaitForChild("RF"):WaitForChild("recieve_gift"):InvokeServer(unpack(args))
+	end
+})
