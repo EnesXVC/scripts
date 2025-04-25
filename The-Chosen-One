@@ -1,0 +1,774 @@
+local success,err = pcall(function()
+getgenv().deletewhendupefound = true
+local localplr = game.Players.LocalPlayer
+local mult = 4 -- FINALLY THIS BECAME USEFUL!
+local built = false
+local colorbool = true
+local stopped = false
+local on = true
+local highlight = Instance.new("Highlight")
+highlight.Parent = game.CoreGui
+local lib = loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Lib-18698"))()
+lib.makelib("The Chosen One EXTRAS (BY 2AREYOUMENTAL110)")
+local buildtab = lib.maketab("build")
+local tooltab = lib.maketab("tools")
+local geartab = lib.maketab("gears")
+local scripttab = lib.maketab("more scripts")
+local bsaltab = lib.maketab("build save/load (VERY BUGGY, DO NOT USE)")
+local commandtab = lib.maketab("commands")
+lib.makelabel("if you see normalxsx / btc_normalxsx / normalxsx_windows1 / A_Normalxsx that is also me",buildtab)
+function snap(pos)
+    --pos = Vector3.new(math.round(pos.X/mult)*mult,math.round(pos.Y/mult)*mult,math.round(pos.Z/mult)*mult)
+    return pos
+end
+local childcube = nil -- yeah its reversed
+local blocks = {}
+local cubechild = workspace.Bricks[localplr.Name].ChildAdded:Connect(function(child)
+    childcube = child
+    blocks[child.Position] = child
+    built = true
+end)
+for i,child in pairs(workspace.Bricks[localplr.Name]:GetChildren()) do
+    blocks[child.Position] = child
+end
+function getclosesttopos(pos)
+	local closest = nil
+	for i,v in pairs(blocks) do
+  		if v and v.Parent then
+    		if closest == nil then
+      			closest = {(i - pos).Magnitude,v,i}
+      		elseif closest and (i - pos).Magnitude < closest[1] then
+      			closest = {(i - pos).Magnitude,v,i}
+      		end
+    	else
+    		blocks[i] = nil
+    	end
+  	end
+	return closest[2],closest[3]
+end
+local colors = {}
+colors["tan"] = Color3.fromRGB(188,155,93)
+colors["pink"] = Color3.fromRGB(255,0,255)
+colors["dark pink"] = Color3.fromRGB(160,0,160)
+local defaultcolor = Color3.fromRGB(192,192,192)
+local buildingexec = nil
+function buildblock(pos,texture,color,bsize)
+    task.wait(0.001)
+    local success,err = pcall(function()
+        --localplr.Character:FindFirstChildWhichIsA("Tool").Parent = localplr.Backpack yea we wont need this anymore
+    end)
+    if bsize == nil then
+        bsize = "large"
+        if game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("Build") then
+            bsize = game:GetService("Players").LocalPlayer.PlayerGui.Build.Button.Text
+        end
+    end
+    pcall(function()
+        localplr.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+        localplr.Character.HumanoidRootPart.CFrame = CFrame.new(pos + Vector3.new(0,8,0))
+        localplr.Backpack.Build.Parent = localplr.Character
+    end)
+    local oldpos = pos
+    pos = snap(pos)
+    local args = {
+        [1] = workspace.Terrain,
+        [2] = Enum.NormalId.Top,
+        [3] = pos,
+        [4] = bsize
+    }
+    built = false
+    localplr.Character.Build.Script.Event:FireServer(unpack(args))
+    childcube = nil
+    repeat task.wait() if localplr.Character:FindFirstChild("Build") then localplr.Character.Build.Script.Event:FireServer(unpack(args)) end pcall(function() localplr.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0) localplr.Character.HumanoidRootPart.CFrame = CFrame.new(pos + Vector3.new(0,6,0)) end) until (built == true and childcube) or stopped == true built = false
+    if color ~= nil and color ~= defaultcolor and (localplr.Backpack:FindFirstChild("Paint") or localplr.Character:FindFirstChild("Paint")) and colorbool then
+        local success,err = pcall(function()
+            localplr.Character:FindFirstChildWhichIsA("Tool").Parent = localplr.Backpack
+        end)
+        task.wait()
+        local success,err = pcall(function()
+            localplr.Backpack.Paint.Parent = localplr.Character
+        end)
+        local success,err = pcall(function()
+			localplr.PlayerGui.Paint.ColorUI.Slider.Page5.Row5.Button5.BackgroundColor3 = color
+            localplr.PlayerGui.Paint.Color.Value = localplr.PlayerGui.Paint.ColorUI.Slider.Page5.Row5.Button5
+        end)
+        pcall(function()
+            localplr.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+            localplr.Character.HumanoidRootPart.CFrame = CFrame.new(pos + Vector3.new(0,8,0))
+        end)
+        local args = {
+            [1] = childcube,
+            [2] = Enum.NormalId.Top,
+            [3] = childcube.Position+Vector3.new(1,0,0),
+            [4] = "color",
+			[5] = color,
+            [6] = "tiles",
+			[7] = ""
+        }
+        local oldcolor = childcube.Color
+        highlight.Adornee = childcube
+        repeat task.wait() if localplr.Character:FindFirstChild("Paint") then localplr.Character.Paint.Script.Event:FireServer(unpack(args)) end pcall(function() localplr.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0) localplr.Character.HumanoidRootPart.CFrame = CFrame.new(pos + Vector3.new(0,6,0)) end) until childcube.Color ~= oldcolor or stopped == true
+        highlight.Adornee = nil
+    end
+end
+lib.makebutton("Stop Building",buildtab,function()
+    stopped = true
+end)
+lib.maketoggle("Add Color",buildtab,function(bool)
+    colorbool = bool
+end)
+lib.makebutton("Build D***",buildtab,function()
+    built = true
+    stopped = false
+    local stopbuild = false
+    if buildingexec then
+        buildingexec()
+    end
+    buildingexec = function()
+    	stopbuild = true
+        buildingexec = nil
+    end
+    local cfr = localplr.Character.HumanoidRootPart.CFrame
+    local pos = cfr.Position
+    local blocks = { -- yes, this is the whole thing, go ahead, skid it.
+      {0,0,0,0,2,2,3,2,2,0,0,0,0},
+      {0,0,0,2,2,2,3,2,2,2,0,0,0},
+      {0,0,2,2,2,2,2,2,2,2,2,0,0},
+      {0,0,1,1,1,1,1,1,1,1,1,0,0},
+      {0,0,1,1,1,1,1,1,1,1,1,0,0},
+      {0,0,1,1,1,1,1,1,1,1,1,0,0},
+      {0,0,1,1,1,1,1,1,1,1,1,0,0},
+      {0,0,1,1,1,1,1,1,1,1,1,0,0},
+      {0,0,0,1,1,1,1,1,1,1,0,0,0},
+      {0,0,0,0,1,1,1,1,1,0,0,0,0},
+      {0,0,1,1,1,1,1,1,1,1,1,0,0},
+      {0,1,1,1,1,1,1,1,1,1,1,1,0},
+      {1,1,1,1,1,1,1,1,1,1,1,1,1},
+      {1,1,1,1,1,1,1,1,1,1,1,1,1},
+      {1,1,1,1,1,1,1,1,1,1,1,1,1},
+      {0,1,1,1,1,1,0,1,1,1,1,1,0},
+      {0,0,1,1,1,0,0,0,1,1,1,0,0}
+    }
+    local blockamt = #blocks
+    for i,v in pairs(blocks) do
+        for i2,v2 in pairs(v) do
+            if stopped or stopbuild then
+                return
+            end
+        	local colornum = nil
+        	if v2 == 1 then
+          		colornum = colors["tan"]
+          	elseif v2 == 2 then
+          		colornum = colors["pink"]
+          	elseif v2 == 3 then
+          		colornum = colors["dark pink"]
+          	end
+        	if v2 ~= 0 then
+        		buildblock(Vector3.new(i2*mult-21,(blockamt-i)*mult,0)+pos,nil,colornum)
+          	end
+        end
+    end
+    stopped = false
+end)
+lib.maketextbox("Build Cube (enter size)",buildtab,function(txt)
+    built = true
+    stopped = false
+    local stopbuild = false
+    if buildingexec then
+        buildingexec()
+    end
+    buildingexec = function()
+    	stopbuild = true
+        buildingexec = nil
+    end
+    local num = tonumber(txt)
+    local cfr = localplr.Character.HumanoidRootPart.CFrame
+    local pos = cfr.Position
+    local blocks = {}
+    for i=1, num do
+        for i2=1, num do
+            for i3=1, num do
+                if not stopped then
+                    table.insert(blocks,pos+Vector3.new(i*mult,i2*mult,i3*mult))
+                end
+            end
+        end
+    end
+    for i,v in pairs(blocks) do
+        if stopped or stopbuild then
+            return
+        end
+        buildblock(v,Color3.fromRGB(255,0,0))
+    end
+    stopped = false
+end)
+local loadstr = game:HttpGet("https://rawscripts.net/raw/Universal-Script-Text-to-Blocks-WIP-20736")
+local stuff = loadstring(loadstr)()
+lib.maketextbox("Build Text (enter in text)",buildtab,function(txt)
+    built = true
+    stopped = false
+    local stopbuild = false
+    if buildingexec then
+        buildingexec()
+    end
+    buildingexec = function()
+    	stopbuild = true
+        buildingexec = nil
+    end
+    local blocks = stuff.getblocks(txt)
+    local tobuild = game.Players.LocalPlayer.Character:GetPivot()
+    local displayid,pttable,cfrtable = stuff.displayblocks(blocks,tobuild,4,true,4,5,0,false,Enum.Material.ForceField)
+    for i,v in pairs(cfrtable) do
+        if stopped or stopbuild then
+            deletedisplay(displayid)
+            return
+        end
+        buildblock(v.Position)
+    end
+    deletedisplay(displayid)
+end)
+lib.makelabel("this is evil",buildtab)
+lib.makelabel("note: the delete aura will also delete your own builds",buildtab)
+local daurarange = 35
+local daurapart = Instance.new("Part")
+daurapart.Shape = Enum.PartType.Ball
+daurapart.Anchored = true
+daurapart.CanCollide = false
+daurapart.CastShadow = false
+daurapart.Color = Color3.fromRGB(255,0,0)
+daurapart.Transparency = 1
+daurapart.Size = Vector3.new(daurarange,daurarange,daurarange)
+daurapart.Parent = workspace
+lib.maketextbox("Range of delete aura (studs)",buildtab,function(txt)
+    daurarange = tonumber(txt)
+    daurapart.Size = Vector3.new(daurarange,daurarange,daurarange)
+end)
+local filter = OverlapParams.new()
+filter.FilterType = Enum.RaycastFilterType.Include
+filter.MaxParts = 8
+filter:AddToFilter(workspace.Bricks)
+local daura = false
+lib.maketoggle("Delete Aura",buildtab,function(bool)
+    daura = bool
+    if daura then
+        daurapart.Transparency = 0.5
+    else
+        daurapart.Transparency = 1
+    end
+end)
+local ors = game:GetService("RunService").RenderStepped:Connect(function()
+    if daura and localplr.Character then
+        daurapart.Position = localplr.Character:GetPivot().Position
+        local parts = workspace:GetPartsInPart(daurapart,filter)
+        for i,v in pairs(parts) do
+            pcall(function()
+                if localplr.Backpack:FindFirstChild("Delete") then
+                    localplr.Backpack.Delete.Parent = localplr.Character
+                end
+                localplr.Character.Delete.Script.Event:FireServer(v,v.Position)
+            end)
+        end
+    end
+end)
+--coroutine.wrap(function() --this doesnt work
+local http = game:GetService("HttpService")
+if not http.JSONDecode or not http.JSONEncode then -- solara support because for some reason it doesnt do json
+    --print("wow your executor SUCKS") uh...
+    http = loadstring(game:HttpGet("https://raw.githubusercontent.com/rxi/json.lua/refs/heads/master/json.lua"))()
+    http.JSONDecode = function(self,str)
+        return http.decode(str)
+    end
+    http.JSONEncode = function(self,val)
+        return http.encode(val)
+    end
+end
+local starterui = game:GetService("StarterGui")
+local savebuildname = "Untitled"
+local savebuildnames = {}
+local textbox
+textbox = lib.maketextbox("Build Name",bsaltab,function(txt)
+    savebuildname = txt
+    textbox.Text = ""
+    textbox.PlaceholderText = "Successfully Named Build"
+    wait(1)
+    textbox.PlaceholderText = "Set Build Name"
+end)
+local selectedbuild = nil
+local builds = {}
+local builddropdown
+function updatedropdown()
+    local names = {}
+    for i,v in pairs(builds) do
+        table.insert(names,i)
+    end
+    lib.updatedropdown(builddropdown,names)
+    writefile("thechosenonebuilds.txt",http:JSONEncode(builds))
+    writefile("thechosenonenames.txt",http:JSONEncode(savebuildnames))
+end
+pcall(function()
+    builds = http:JSONDecode(readfile("thechosenonebuilds.txt"))
+end)
+pcall(function()
+    savebuildnames = http:JSONDecode(readfile("thechosenonenames.txt"))
+end)
+if builds == nil then
+    builds = {}
+end
+if savebuildnames == nil then
+    savebuildnames = {}
+end
+-- glaze = glass
+-- ghost = transparency 0.03 (plastic)
+-- workspace.cubes.whayeverplayer.Cube
+-- build delete polish glaze
+lib.makebutton("Save Build",bsaltab,function()
+    local builddata = {}
+    for i,v in pairs(workspace.Bricks[localplr.Name]:GetChildren()) do
+        if v:IsA("BasePart") then
+            local posc = {v.CFrame:GetComponents()}
+            table.insert(builddata,{pos = posc,color = {v.Color.R*255,v.Color.G*255,v.Color.B*255}})
+        end
+    end
+    local savebuildname2 = savebuildname
+    if savebuildname == "Untitled" or builds[savebuildname] ~= nil then
+        if savebuildnames[savebuildname] == nil then
+            savebuildnames[savebuildname] = 0
+        end
+        savebuildnames[savebuildname] += 1
+        local savebuildamt = savebuildnames[savebuildname]
+        savebuildname2 = savebuildname..tostring(savebuildamt)
+    end
+    builds[savebuildname2] = builddata
+    updatedropdown()
+end)
+lib.makebutton("Save Server Builds",bsaltab,function()
+    local builddata = {}
+    for i,v in pairs(workspace.Bricks:GetDescendants()) do
+        if v:IsA("BasePart") then
+            local posc = {v.CFrame:GetComponents()}
+            table.insert(builddata,{pos = posc,color = v.Color})
+        end
+    end
+    local savebuildname2 = savebuildname
+    if savebuildname == "Untitled" or builds[savebuildname] ~= nil then
+        if savebuildnames[savebuildname] == nil then
+            savebuildnames[savebuildname] = 0
+        end
+        savebuildnames[savebuildname] += 1
+        local savebuildamt = savebuildnames[savebuildname]
+        savebuildname2 = savebuildname..tostring(savebuildamt)
+    end
+    builds[savebuildname2] = builddata
+    updatedropdown()
+end)
+builddropdown = lib.makedropdown("Saved Builds",bsaltab,{},function(sel)
+    selectedbuild = {sel,builds[sel]}
+end)
+local bindfunc = Instance.new("BindableFunction")
+bindfunc.OnInvoke = function(prompt)
+    if prompt == "Yes" and selectedbuild ~= nil then
+        builds[selectedbuild[1]] = nil
+        selectedbuild = nil
+        updatedropdown()
+    end
+end
+lib.makebutton("Delete Save",bsaltab,function()
+    starterui:SetCore("SendNotification",{Title="Delete Save?",Text="Are you sure you want to delete the save?",Duration=5,Callback=bindfunc,Button1="Yes",Button2="No"})
+end)
+function getbuild()
+    if selectedbuild then
+        return selectedbuild[2]
+    end
+    return nil
+end
+lib.makebutton("Load Save",bsaltab,function()
+    if selectedbuild ~= nil then
+        local build = getbuild()
+        if build then
+            for i,v in pairs(selectedbuild[2]) do
+                local blocktype = nil
+                buildblock(CFrame.new(table.unpack(v.pos)).Position,nil,Color3.fromRGB(table.unpack(v.color or {})))
+            end
+        end
+    end
+end)
+lib.makelabel("Pressing 'say' will not make you say to everyone, you say it privately",geartab)
+lib.makelabel("Doing the say/copy will say/copy the gear id, not the gear name",geartab)
+local currgears = {}
+local chatgear = false
+local gearcopybefore = "gear me "
+lib.makebutton("Put gear id with 'gear me'",geartab,function()
+    gearcopybefore = "gear me "
+end)
+lib.makebutton("Put gear id with 'gear all'",geartab,function()
+    gearcopybefore = "gear all "
+end)
+lib.maketextbox("Put gear id with what you enter",geartab,function(txt)
+    local len = string.len(txt)
+    if len > 0 then
+        if string.sub(txt,len,len) == " " then
+            txt = string.sub(txt,1,len-1)
+        end
+        txt = txt.." "
+    end
+    gearcopybefore = txt
+end)
+local chat = nil
+pcall(function()
+    chat = nil--require(game:GetService("Players").LocalPlayer:WaitForChild("PlayerScripts"):WaitForChild("ChatScript"):WaitForChild("ChatMain"))
+end)
+function say(text,channel)
+    coroutine.wrap(function()
+        --game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(text,channel or "System")
+        if channel and channel:lower() == "system" then
+            game:GetService("TextChatService").TextChannels.RBXSystem:SendAsync(text)
+        else
+            game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(text)
+        end
+    end)()
+end
+local gsavenames = "tcogearsavenames.txt"
+function savegears()
+    pcall(function()
+        local tjson = game:GetService("HttpService"):JSONEncode(currgears)
+        writefile(gsavenames,tjson)
+    end)
+end
+function makegear(gearname,gearid,save,changename)
+    deletegear(gearid)
+    if changename == nil then
+        changename = true
+    end
+    if changename then
+    local foundcopy = false
+    for i,v in pairs(currgears) do
+        if v[3] == gearname then
+            foundcopy = true
+        end
+    end
+    if foundcopy then
+        local n = 1
+        local gearname2 = gearname
+        repeat
+            local foundcopy2 = false
+            gearname2 = gearname.." "..tostring(n)
+            for i,v in pairs(currgears) do
+                if v[3] == gearname2 then
+                    foundcopy2 = true
+                end
+            end
+            n += 1
+            if not foundcopy2 then
+                foundcopy = false
+            end
+            task.wait()
+        until foundcopy == false
+        gearname = gearname2
+    end
+    end
+    local gbutton = lib.makebutton("Copy "..gearname,geartab,function()
+        setclipboard(gearcopybefore..tostring(gearid))
+    end)
+    local gbutton2 = lib.makebutton("Say "..gearname,geartab,function()
+        say(gearcopybefore..tostring(gearid),"system")
+    end)
+    if save then
+        currgears[gearid] = {gbutton,gbutton2,gearname,gearid}
+        savegears()
+    end
+end
+function deletegear(gearid)
+    if currgears[gearid] then
+        local v = currgears[gearid]
+        pcall(function()
+            v[1]:Destroy()
+            v[2]:Destroy()
+            currgears[gearid] = nil
+            savegears()
+        end)
+    end
+end
+lib.makelabel("Preset Gears",geartab)
+makegear("Pot Of Gold",24015579,false)
+makegear("Merely's Web Slinger",169602010,false)
+makegear("Dagger of Shattered Dimensions",71037101,false)
+makegear("Portable Justice (Blacklisted)",82357101,false)
+makegear("BB-8",1183007014,false)
+makegear("BB-9E",1207857286,false)
+makegear("Advanced Paint Bucket",18474459,false)
+makegear("Rainbow Periastron",159229806,false)
+makegear("Chartreuse Periastron",80661504,false)
+makegear("Crimson Periastron",99119240,false)
+makegear("Azure Periastron",69499437,false)
+makegear("Noir Periastron",120307951,false)
+makegear("Ivory Periastron",108158379,false)
+makegear("Grimgold Periastron",73829193,false)
+makegear("Amethyst Periastron",93136802,false)
+makegear("Festive Periastron",139577901,false)
+makegear("Joyful Periastron",233520257,false)
+makegear("Fall Periastron",2544549379,false)
+makegear("Fake Chartreuse Periastron",80597060,false)
+makegear("Blizzard Wand",68354832,false)
+makegear("Poseidon's Quake Trident",54130559,false)
+lib.makelabel("Custom Gears (creation)",geartab)
+local gnamesel = "Untitled"
+lib.maketextbox("Enter gear name",geartab,function(txt)
+    gnamesel = txt
+end)
+local gidsel = "0"
+lib.maketextbox("Enter gear id",geartab,function(txt)
+    gidsel = txt
+end)
+lib.makebutton("Create Gear Buttons",geartab,function()
+    if currgears[gidsel] then
+        deletegear(gidsel)
+    end
+    makegear(gnamesel,gidsel,true)
+end)
+lib.maketextbox("Delete Gear Buttons (enter in id)",geartab,function(txt)
+    deletegear(txt)
+end)
+lib.makelabel("Custom Gears",geartab)
+pcall(function()
+    currgears = game:GetService("HttpService"):JSONDecode(readfile(gsavenames))
+    if currgears == nil then
+        currgears = {}
+    end
+    for i,v in pairs(currgears) do
+        makegear(v[3],i,true,false)
+    end
+    savegears()
+end)
+local spamming = nil
+lib.maketoggle("Spam Equipped Tool",tooltab,function(bool)
+    if bool then
+        spamming = true
+    else
+        spamming = nil
+    end
+end)
+local dee = false
+lib.maketoggle("Don't equip enlighten when dropping/equipping tools",tooltab,function(bool)
+    dee = bool
+end)
+lib.makebutton("Equip All Tools",tooltab,function()
+	for i,v in pairs(localplr.Backpack:GetChildren()) do
+		if v:IsA("Tool") then
+		    if (dee and v.Name ~= "The Arkenstone") or not dee then
+			    v.Parent = localplr.Character
+			end
+		end
+	end
+end)
+lib.makelabel("warning",tooltab)
+lib.makebutton("Drop All Tools",tooltab,function()
+	for i,v in pairs(localplr.Backpack:GetChildren()) do
+		if v:IsA("Tool") then
+		    if (dee and v.Name ~= "The Arkenstone") or not dee then
+			    v.Parent = localplr.Character
+			end
+		end
+	end
+	task.wait()
+	for i,v in pairs(localplr.Character:GetChildren()) do
+		if v:IsA("Tool") then
+			v.Parent = workspace
+		end
+	end
+end)
+local ot = false
+local autoperm = true
+local alwaysreset = false
+local alwaysresetall = false
+local commands = {}
+local onrender = game:GetService("RunService").RenderStepped:Connect(function()
+    if spamming and on then
+        if localplr.Character:FindFirstChildWhichIsA("Tool") then
+            localplr.Character:FindFirstChildWhichIsA("Tool"):Activate()
+        end
+    end
+    local attemptreset = false
+    if autoperm and localplr.Character and localplr.Character:FindFirstChild("The Arkenstone") then
+        say("reset me","system")
+        attemptreset = true
+    end
+    if alwaysreset then
+        say("reset me","system")
+    end
+    if alwaysresetall then
+        say("reset all","system")
+    end
+    if not attemptreset then
+        for i,v in pairs(commands) do
+            if v == true then
+                say(i,"system")
+            end
+        end
+    end
+end)
+lib.maketoggle("Auto Permanent Enlighten",scripttab,function(bool)
+    autoperm = bool
+end,true)
+lib.maketoggle("Spam reset",scripttab,function(bool)
+    alwaysreset = bool
+end)
+lib.maketoggle("Spam reset all",scripttab,function(bool)
+    alwaysresetall = bool
+end)
+lib.makelabel("Since the chosen one updated to the new roblox chat, the no chat logger no longer works, use the 'clear chat logs' thing.",scripttab)
+function clearclogs(amt)
+    for i=1,amt do
+        say("","system")
+    end
+end
+lib.makelabel("The clear chat of logs makes it so that if someone reports you, roblox will look into your first 10-15 chats (which will be cleared) and u wont get banned",scripttab)
+lib.makelabel("(however, you have to manually clear it and you cant chat for a few seconds)",scripttab)
+lib.makelabel("clear chat log by vxsty",scripttab)
+lib.makebutton("Clear chat of logs (10)",scripttab,function()
+    clearclogs(10)
+end)
+lib.makebutton("Clear chat of logs (20)",scripttab,function()
+    clearclogs(20)
+end)
+local ccol = false
+lib.maketoggle("Always clear chat of logs (RECOMMENDED, COMMANDS WONT WORK WHEN ENABLED)",scripttab,function(bool)
+    ccol = bool
+    while ccol do
+        task.wait()
+        clearclogs(1)
+    end
+end)
+lib.makebutton("Say Long Message (broken D:)",scripttab,function()
+    say("â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»â¸»","All")
+end)
+lib.makelabel("warning",scripttab)
+lib.makebutton("Execute Fling All Script",scripttab,function()
+    if loadfile ~= nil and writefile ~= nil and readfile ~= nil then
+        local cache = nil
+        local success,err = pcall(function()
+            cache = readfile("CachedFlingAll.txt")
+        end)
+        if not cache then
+            cache = game:HttpGet("https://rawscripts.net/raw/Universal-Script-FLING-ALL-SCRIPT-17590")
+            writefile("CachedFlingAll.txt",cache)
+        end
+        loadstring(cache)()
+    else
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FLING-ALL-SCRIPT-17590"))()
+    end
+end)
+lib.makelabel("warning",scripttab)
+local savefile = "tcospamcommandssave.txt"
+local spamtxtssave = {}
+local spamtxtinstance = {}
+local spamnum = 0
+local truncatetxt = true
+function addcmd(txt,save,index)
+    local spamtxt = false
+    if not index then
+        for i,v in pairs(spamtxtssave) do
+            if spamtxtssave[i+1] == nil then
+                index = i+1
+                break
+            end
+        end
+    end
+    spamnum = index
+    local num = spamnum
+    if save then
+        spamtxtssave[spamnum] = txt
+        --spamtxtssave["max"] = spamnum
+    end
+    commands[txt] = false
+    local previewcmd = string.split(txt," ")[1]
+    if not truncatetxt then
+        previewcmd = txt
+    end
+    local tog = lib.maketoggle("Spam Command/Text ("..previewcmd.." "..tostring(num)..")",commandtab,function(bool)
+        commands[txt] = bool
+    end)
+    spamtxtinstance[spamnum] = {tog,txt}
+    if save then
+        writefile(savefile,http:JSONEncode(spamtxtssave))
+    end
+    for i,v in pairs(spamtxtinstance) do
+        v[1].LayoutOrder = i
+    end
+end
+lib.maketoggle("Truncate/Shorten Text",commandtab,function(bool)
+    truncatetxt = bool
+    for i,v in pairs(spamtxtinstance) do
+        v[1]:Destroy()
+        spamtxtinstance[i] = nil
+    end
+    for i,v in pairs(spamtxtssave) do
+        i = tonumber(i)
+        addcmd(v,false,i)
+    end
+end,true)
+lib.maketextbox("Enter Command",commandtab,function(txt)
+    addcmd(txt,true)
+end)
+lib.maketextbox("Remove Command (put exact command)",commandtab,function(txt)
+    for i,v in pairs(spamtxtssave) do
+        if v == txt then
+            spamtxtssave[i] = nil
+        end
+    end
+    commands[txt] = false
+    for i,v in pairs(spamtxtinstance) do
+        if v[2] == txt then
+            v[1]:Destroy()
+        end
+    end
+    writefile(savefile,http:JSONEncode(spamtxtssave))
+end)
+local bindfunc = Instance.new("BindableFunction")
+bindfunc.OnInvoke = function(prompt)
+    if prompt == "Yes" then
+        for i,v in pairs(spamtxtinstance) do
+            v[1]:Destroy()
+            spamtxtinstance[i] = nil
+        end
+        commands = {}
+        spamtxtssave = {}
+        writefile(savefile,http:JSONEncode(spamtxtssave))
+    end
+end
+lib.makebutton("Reset All Commands",commandtab,function()
+    starterui:SetCore("SendNotification",{Title="Delete Commands?",Text="Are you sure you want to reset the commands?",Duration=5,Callback=bindfunc,Button1="Yes",Button2="No"})
+end)
+lib.makelabel("",commandtab)
+pcall(function()
+    local save = readfile(savefile)
+    if save then
+        spamtxtssave = http:JSONDecode(save)
+        for i,v in pairs(spamtxtssave) do
+            i = tonumber(i)
+            addcmd(v,false,i)
+            --elseif i == "max" then
+                --spamnum = v
+        end
+    end
+end)
+lib.ondestroyedfunc = function()
+    on = false
+    ot = false
+    ccol = false
+    stopped = true
+    autoperm = false
+    alwaysreset = false
+    alwaysresetall = false
+    built = true
+	cubechild:Disconnect()
+	onrender:Disconnect()
+    highlight:Destroy()
+    daura = false
+    ors:Disconnect()
+    daurapart:Destroy()
+    for i,v in pairs(commands) do
+        v = false
+    end
+    --writefile(savefile,http:JSONEncode(spamtxtssave))
+end
+end)
