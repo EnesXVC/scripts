@@ -1,0 +1,191 @@
+local Luna = loadstring(game:HttpGet("https://pastebin.com/raw/Y8wBJLVt", true))()
+
+
+local Window = Luna:CreateWindow({
+	Name = "XVC Hub | Legends Of Speed", -- This Is Title Of Your Window
+	Subtitle = nil, -- A Gray Subtitle next To the main title.
+	LogoID = "82795327169782", -- The Asset ID of your logo. Set to nil if you do not have a logo for Luna to use.
+	LoadingEnabled = true, -- Whether to enable the loading animation. Set to false if you do not want the loading screen or have your own custom one.
+	LoadingTitle = "XVC Hub | Legends Of Speed", -- Header for loading screen
+	LoadingSubtitle = "by IEnes", -- Subtitle for loading screen
+
+	ConfigSettings = {
+		RootFolder = nil, -- The Root Folder Is Only If You Have A Hub With Multiple Game Scripts and u may remove it. DO NOT ADD A SLASH
+		ConfigFolder = nil -- The Name Of The Folder Where Luna Will Store Configs For This Script. DO NOT ADD A SLASH
+	},
+
+	KeySystem = false, -- As Of Beta 6, Luna Has officially Implemented A Key System!
+	KeySettings = {
+		Title = "Luna Example Key",
+		Subtitle = "Key System",
+		Note = "Best Key System Ever! Also, Please Use A HWID Keysystem like Pelican, Luarmor etc. that provide key strings based on your HWID since putting a simple string is very easy to bypass",
+		SaveInRoot = false, -- Enabling will save the key in your RootFolder (YOU MUST HAVE ONE BEFORE ENABLING THIS OPTION)
+		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+		Key = {"Example Key"}, -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
+		SecondAction = {
+			Enabled = true, -- Set to false if you do not want a second action,
+			Type = "Link", -- Link / Discord.
+			Parameter = "" -- If Type is Discord, then put your invite link (DO NOT PUT DISCORD.GG/). Else, put the full link of your key system here.
+		}
+	}
+})
+
+local AutofarmTab = Window:CreateTab({
+	Name = "Main",
+	Icon = "view_in_ar",
+	ImageSource = "Material",
+	ShowTitle = true
+})
+
+if game.workspace:FindFirstChild("XVCHub") then
+    
+else
+    local XVCHub = Instance.new("Part")
+    XVCHub.Name = "XVCHub"
+    XVCHub.Parent = game.Workspace
+    XVCHub.Anchored = true
+    XVCHub.Transparency = 0
+    XVCHub.Size = Vector3.new(30,-0.5,30)
+    XVCHub.Position = Vector3.new(-543.452, 2873.2, 324.647)
+end
+
+AutofarmTab:CreateToggle({
+    Name = "Auto Steps",
+    CurrentValue = false,
+    Callback = function(t)
+        getgenv().Autostep = t
+        local maps = {"City", "Snow City", "Magma City"}
+        local orbColors = {"Red Orb", "Orange Orb", "Blue Orb"}
+        
+        while getgenv().Autostep and task.wait() do
+            pcall(function()
+                for i = 1, 20 do
+                    for _, map in ipairs(maps) do
+                        for _, color in ipairs(orbColors) do
+                            local args = {"collectOrb", color, map}
+                            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
+                        end
+                    end
+                end
+            end)
+        end
+    end
+})
+
+AutofarmTab:CreateToggle({
+    Name = "Auto Steps (This is even slower)",
+    CurrentValue = false,
+    Callback = function(t)
+        getgenv().Autostep = t
+        local maps = {"City", "Snow City", "Magma City"}
+        local orbColors = {"Red Orb", "Orange Orb", "Blue Orb"}
+        
+        while getgenv().Autostep and task.wait() do
+            pcall(function()
+                for i = 1, 1 do
+                    for _, map in ipairs(maps) do
+                        for _, color in ipairs(orbColors) do
+                            local args = {"collectOrb", color, map}
+                            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
+                        end
+                    end
+                end
+            end)
+        end
+    end
+})
+
+AutofarmTab:CreateToggle({
+    Name = "Auto collect gems",
+    CurrentValue = false,
+    Callback = function(t)
+        spawn(function()
+            getgenv().AutocollectDiamonds = t
+            while task.wait() do
+                if getgenv().AutocollectDiamonds == true then
+                    pcall(function()
+                        for i = 1,10 do
+                            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
+                            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Gem", "Desert")
+                            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Gem", "Magma City")
+                        end
+                    end)
+                end
+            end
+        end)
+    end
+})
+
+AutofarmTab:CreateToggle({
+    Name = "Hops Farm",
+    CurrentValue = false,
+    Callback = function(t)
+        getgenv().Autohops = t
+        while task.wait() do
+            if getgenv().Autohops == true then
+                for i,v in pairs(game:GetService("Workspace").Hoops:GetChildren()) do
+                    v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                end
+            end
+        end
+    end
+})
+
+AutofarmTab:CreateToggle({
+    Name = "Safe Hops Farm",
+    CurrentValue = false,
+    Callback = function(t)
+        HoopsFarm = t
+    end
+})
+
+spawn(function()
+    while task.wait() do
+        if HoopsFarm then
+            pcall(function()
+                for i,v in pairs(game:GetService("Workspace").Hoops:GetChildren()) do
+                    v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    wait(.3)
+                end
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while task.wait(.3) do
+        if HoopsFarm then
+            pcall(function()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-547.52026, 2893.19995, 327.647003)
+            end)
+        end
+    end
+end)
+
+AutofarmTab:CreateToggle({
+    Name = "AutoRebirth",
+    CurrentValue = false,
+    Callback = function(t)
+        spawn(function()
+            getgenv().AutoRebirth = t
+            while wait() do
+                if getgenv().AutoRebirth == true then
+                    pcall(function ()
+                        game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer("rebirthRequest")
+                        game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer("rebirthRequest")
+                    end)
+                end
+            end
+        end)
+    end
+})
+
+AutofarmTab:CreateButton({
+    Name = "Collect Chests",
+    Callback = function()
+        game:GetService("ReplicatedStorage").rEvents.groupRemote:InvokeServer("groupRewards")
+        game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer("Enchanted Chest")
+        wait()
+        game:GetService("ReplicatedStorage").rEvents.collectCourseChestRemote:InvokeServer(workspace.rewardChests.rewardChest)
+    end
+})
