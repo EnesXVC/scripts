@@ -1,0 +1,150 @@
+local Luna = loadstring(game:HttpGet("https://pastebin.com/raw/Y8wBJLVt", true))()
+
+local Window = Luna:CreateWindow({
+	Name = "XVC Hub",
+	Subtitle = "Breeding ranch",
+	LogoID = "6026568229",
+	LoadingEnabled = true,
+	LoadingTitle = "XVC Hub Project",
+	LoadingSubtitle = "by IEnes",
+
+	ConfigSettings = {
+		RootFolder = nil,
+		ConfigFolder = "Big Hub",
+	},
+
+	KeySystem = false,
+	KeySettings = {
+		Title = "Luna Example Key",
+		Subtitle = "Key System",
+		Note = "Best Key System Ever! Also, Please Use A HWID Keysystem like Pelican, Luarmor etc. that provide key strings based on your HWID since putting a simple string is very easy to bypass",
+		SaveInRoot = false,
+		SaveKey = true,
+		Key = {"Ilike25ms&33ms<3"},
+		SecondAction = {
+			Enabled = true,
+			Type = "Link",
+			Parameter = ""
+		}
+	}
+})
+
+local mainTab = Window:CreateTab({
+	Name = "Main",
+	Icon = "home_filled",
+	ImageSource = "Material",
+	ShowTitle = true
+})
+
+local infCashActive = false
+local BestEgg = false
+local RareEgg = false
+local MonkeyEgg = false
+
+mainTab:CreateToggle({
+	Name = "InfCash",
+	CurrentValue = false,
+	Callback = function(Value)
+		infCashActive = Value
+		if Value then
+			task.spawn(function()
+				while infCashActive do
+					local args = {
+						{
+							data = {
+								id = 33
+							},
+							protoId = 5501
+						}
+					}
+					game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("Main"):FireServer(unpack(args))
+					task.wait(.1)
+				end
+			end)
+		end
+	end
+}, "InfCashToggle")
+
+mainTab:CreateToggle({
+	Name = "Get Best Egg",
+	CurrentValue = false,
+	Callback = function(Value)
+		BestEgg = Value
+		if Value then
+			task.spawn(function()
+				while BestEgg do
+					local args = {
+						{
+							data = {
+								id = 34
+							},
+							protoId = 5501
+						}
+					}
+					game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("Main"):FireServer(unpack(args))
+					task.wait(.1)
+				end
+			end)
+		end
+	end
+}, "BestEggToggle")
+
+mainTab:CreateToggle({
+	Name = "Get Rare Egg",
+	CurrentValue = false,
+	Callback = function(Value)
+		RareEgg = Value
+		if Value then
+			task.spawn(function()
+				while RareEgg do
+					local args = {
+						{
+							data = {
+								id = 31
+							},
+							protoId = 5501
+						}
+					}
+					game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("Main"):FireServer(unpack(args))
+					task.wait(.1)
+				end
+			end)
+		end
+	end
+}, "RareEggToggle")
+
+mainTab:CreateToggle({
+	Name = "Get Monkey Egg",
+	CurrentValue = false,
+	Callback = function(Value)
+		MonkeyEgg = Value
+		if Value then
+			task.spawn(function()
+				while MonkeyEgg do
+					local args = {
+						{
+							data = {
+								id = 27
+							},
+							protoId = 5501
+						}
+					}
+					game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("Main"):FireServer(unpack(args))
+					task.wait(.1)
+				end
+			end)
+		end
+	end
+}, "monkeyEggToggle")
+
+mainTab:CreateButton({
+	Name = "ProximityPrompt HoldDuration 0",
+	Description = nil,
+    	Callback = function()
+            for _, v in ipairs(workspace:GetDescendants()) do
+                if v:IsA("ProximityPrompt") then
+                    v.HoldDuration = 0
+                end
+            end            
+    	end
+})
