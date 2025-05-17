@@ -1,0 +1,66 @@
+local HttpService = game:GetService("HttpService")
+
+return function(Source, CustomVarPrefix, WaterMark)
+    task.spawn(function()
+        local prefix = CustomVarPrefix or "Obf_"
+        local wmText = WaterMark or "Protected by Ghost-Ducky"
+        local output = ""
+
+        local function randVar(len)
+            local pool = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            local var = ""
+            for i = 1, len do
+                local rand = math.random(1, #pool)
+                var = var .. pool:sub(rand, rand)
+            end
+            return prefix .. var
+        end
+
+        local function strToBytes(str)
+            local result = {}
+            for i = 1, #str do
+                table.insert(result, "\\" .. str:byte(i))
+            end
+            return table.concat(result, '", "')
+        end
+
+        local function generateNoise(amount)
+            local noise = ""
+            for i = 1, amount do
+                local var = randVar(math.random(10, 20))
+                local content = strToBytes(HttpService:GenerateGUID(false))
+                noise = noise .. ('local %s = {"%s"}; '):format(var, content)
+            end
+            return noise
+        end
+
+        local function encodeSource(str)
+            local encoded = {}
+            for i = 1, #str do
+                table.insert(encoded, string.format("\\%d", string.byte(str:sub(i, i))))
+            end
+            return table.concat(encoded, '", "')
+        end
+
+        local tableVar = randVar(15)
+        local loaderVar = randVar(15)
+        local execVar = randVar(15)
+
+        local byteArray = encodeSource(Source)
+
+        local loaderFunc = [[
+local %s = loadstring(table.concat({"\114","\101","\116","\117","\114","\110","\32","\102","\117","\110","\99","\116","\105","\111","\110","\40","\98","\121","\116","\101","\41","\32","\105","\102","\32","\116","\121","\112","\101","\111","\102","\40","\98","\121","\116","\101","\41","\32","\61","\61","\32","\34","\116","\97","\98","\108","\101","\34","\32","\116","\104","\101","\110","\32","\114","\101","\116","\117","\114","\110","\32","\108","\111","\97","\100","\115","\116","\114","\105","\110","\103","\40","\116","\97","\98","\108","\101","\46","\99","\111","\110","\99","\97","\116","\40","\98","\121","\116","\101","\41","\41","\32","\101","\110","\100","\32","\101","\110","\100"}))()]] 
+
+        local wm = "--[[\n    " .. wmText .. "\n]]--\n\n"
+
+        output = wm
+        output = output .. generateNoise(math.random(30, 60))
+        output = output .. "\n" .. loaderFunc:format(loaderVar) .. "\n"
+        output = output .. ("local %s = {\"%s\"} \n"):format(tableVar, byteArray)
+        output = output .. ("local %s = %s(%s) \n"):format(execVar, loaderVar, tableVar)
+        output = output .. generateNoise(math.random(40, 80))
+
+        setclipboard(output)
+        warn("✅ Obfuscation Complete in " .. tostring(tick()) .. "s")
+    end)
+end
