@@ -35,7 +35,7 @@ local Window = Rayfield:CreateWindow({
 local Tab = Window:CreateTab("main", 4483362458) -- Title, Image
 local Paragraph = Tab:CreateParagraph({Title = "warning⚠️", Content = "While one process is running, other processes are not running."})
 local Section = Tab:CreateSection("Add Disaster")
-local repeatCount = 1 
+local repeatCountAdd = 1 
 
 Tab:CreateInput({
    Name = "Number",
@@ -46,7 +46,7 @@ Tab:CreateInput({
    Callback = function(Value)
 		local number = tonumber(Value)
 		if number and number > 0 then
-			repeatCount = number 
+			repeatCountAdd = number 
 		end
    end,
 })
@@ -54,7 +54,7 @@ Tab:CreateInput({
 Tab:CreateButton({
    Name = "Start",
    Callback = function()
-		for i = 1, repeatCount do
+		for i = 1, repeatCountAdd do
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("AddDisaster"):FireServer()
 		end
    end,
@@ -62,7 +62,7 @@ Tab:CreateButton({
 
 local Section = Tab:CreateSection("Remove Disaster (can be negative)")
 
-local repeatCount = 1 
+local repeatCountRemove = 1 
 
 Tab:CreateInput({
    Name = "Number",
@@ -73,7 +73,7 @@ Tab:CreateInput({
    Callback = function(Value)
 		local number = tonumber(Value)
 		if number and number > 0 then
-			repeatCount = number 
+			repeatCountRemove = number 
 		end
    end,
 })
@@ -81,7 +81,7 @@ Tab:CreateInput({
 Tab:CreateButton({
 	Name = "Start",
 	Callback = function()
-		for i = 1, repeatCount do
+		for i = 1, repeatCountRemove do
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("RemoveDisaster"):FireServer()
 		end
 	end
