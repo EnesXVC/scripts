@@ -1,0 +1,180 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "remote abuse",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "remoteabuse",
+   LoadingSubtitle = "by IEnes",
+   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+local Tab = Window:CreateTab("main", 4483362458) -- Title, Image
+local Paragraph = Tab:CreateParagraph({Title = "warning⚠️", Content = "While one process is running, other processes are not running."})
+local Section = Tab:CreateSection("Add Disaster")
+local repeatCount = 1 
+
+Tab:CreateInput({
+   Name = "Number",
+   CurrentValue = "",
+   PlaceholderText = "Number here",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input111",
+   Callback = function(Value)
+		local number = tonumber(Value)
+		if number and number > 0 then
+			repeatCount = number 
+		end
+   end,
+})
+
+Tab:CreateButton({
+   Name = "Start",
+   Callback = function()
+		for i = 1, repeatCount do
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("AddDisaster"):FireServer()
+		end
+   end,
+})
+
+local Section = Tab:CreateSection("Remove Disaster (can be negative)")
+
+local repeatCount = 1 
+
+Tab:CreateInput({
+   Name = "Number",
+   CurrentValue = "",
+   PlaceholderText = "Number here",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1111",
+   Callback = function(Value)
+		local number = tonumber(Value)
+		if number and number > 0 then
+			repeatCount = number 
+		end
+   end,
+})
+
+Tab:CreateButton({
+	Name = "Start",
+	Callback = function()
+		for i = 1, repeatCount do
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("RemoveDisaster"):FireServer()
+		end
+	end
+})
+
+local Section = Tab:CreateSection("Select Map & Dropdown")
+
+local SetMapFolder = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SetMap")
+local remoteList = {}
+local selectedEvent = nil
+
+for _, child in pairs(SetMapFolder:GetChildren()) do
+	if child:IsA("RemoteEvent") then
+		table.insert(remoteList, child.Name)
+	end
+end
+
+Tab:CreateDropdown({
+   Name = "Select Map",
+   Options = remoteList,
+   CurrentOption = remoteList[1] or "None",
+   MultipleOptions = false,
+   Flag = "Dropdown111",
+   Callback = function(Value)
+		selectedEvent = Value
+   end,
+})
+
+Tab:CreateButton({
+	Name = "load map",
+	Callback = function()
+		if selectedEvent then
+			SetMapFolder:FindFirstChild(selectedEvent):FireServer()
+		end
+	end
+})
+
+local Section = Tab:CreateSection("Select Map & TextBox (Use Dex)")
+
+Tab:CreateButton({
+	Name = "Dex",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+  	end    
+})
+local SetMapFolder = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SetMap")
+local selectedEvent = nil
+
+local MapTextBox = Tab:CreateInput({
+   Name = "Enter Map Name",
+   CurrentValue = "",
+   PlaceholderText = "Enter Here",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input133",
+   Callback = function(Value)
+        selectedEvent = Value
+   end,
+})
+
+Tab:CreateButton({
+    Name = "Load Map",
+    Callback = function()
+        if selectedEvent and SetMapFolder:FindFirstChild(selectedEvent) then
+            SetMapFolder:FindFirstChild(selectedEvent):FireServer()
+        else
+            warn("Map not found!")
+        end
+    end
+})
+
+local Section = Tab:CreateSection("The names of all the maps are")
+local Section = Tab:CreateSection("ReplicatedStorage < EventsFolder < SetMapFolder")
+local Section = Tab:CreateSection("Dont Work load maps?")
+
+Tab:CreateButton({
+	Name = "Dont Work? Rejoin Server",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/5kcf62qz"))()
+  	end    
+})
+
+local Tab = Window:CreateTab("misc", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("misc")
+Tab:CreateButton({
+	Name = "Infinite Yield",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+
+Tab:CreateButton({
+	Name = "Dex",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+  	end    
+})
