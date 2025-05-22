@@ -1,0 +1,154 @@
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+local ui = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+local notify = loadstring(game:HttpGet("https://raw.githubusercontent.com/ilovechubbyorangecat/script/refs/heads/main/notification.lua", true))()
+
+local webhook, msg, del
+local spam = false
+
+local function send(txt, silent)
+    if not txt or txt == "" then
+        notify.Error("You must enter a message before sending", "Failed to send message")
+        return
+    end
+
+    if not webhook or webhook == "" then
+        notify.Error("Webhook is not set", "Failed to send message")
+        return
+    end
+    
+    local res = http.request({
+        Url = webhook,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = '{"content": "' .. txt .. '"}'
+    })
+
+    if not silent then
+        if res.StatusCode == 204 then
+            notify.Info("Message Sent", "Success")
+        else
+            notify.Error("Webhook Does Not Exist: " .. res.StatusCode, "Failed to send message")
+        end
+    end
+end
+
+local function validate(silent)
+    local res = http.request({
+        Url = webhook,
+        Method = "GET",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        }
+    })
+
+    if not silent then
+        if res.StatusCode == 200 then
+            notify.Info("Webhook Exists", "Valid Webhook")
+        else
+            notify.Error("Webhook Does Not Exist", "Invalid Webhook")
+        end
+    end
+
+    return res.StatusCode
+end
+
+local function delete()
+    if validate(true) == 200 then
+        local res = http.request({
+            Url = webhook,
+            Method = "DELETE"
+        })
+
+        if res.StatusCode == 204 then
+            notify.Info("Webhook Deleted", "Success")
+        else
+            notify.Error("Webhook Does Not Exist", "Failed to delete webhook")
+        end
+    end
+end
+
+local win = ui:CreateWindow({
+    Title = "Webhook Tool",
+    Icon = "door-open",
+    Folder = nil,
+    Size = UDim2.fromOffset(580, 460),
+    Transparent = true,
+    Theme = "Dark",
+    SideBarWidth = 200,
+    Background = "",
+})
+
+local tab = win:Tab({
+    Title = "Main",
+    Icon = "bird",
+})
+
+tab:Section({
+    Title = "Config",
+    TextXAlignment = "Left",
+    TextSize = 17,
+})
+
+tab:Input({
+    Title = "Webhook URL",
+    Placeholder = "Enter Webhook URL",
+    Callback = function(v) webhook = v end
+})
+
+tab:Input({
+    Title = "Message",
+    Placeholder = "Enter message",
+    Callback = function(v) msg = v end
+})
+
+tab:Input({
+    Title = "Spam Delay",
+    Value = "0.1",
+    Placeholder = "Enter time (seconds)",
+    Callback = function(v) del = v end
+})
+
+tab:Section({
+    Title = "Functions",
+    TextXAlignment = "Left",
+    TextSize = 17,
+})
+
+tab:Button({
+    Title = "Validate Webhook",
+    Locked = false,
+    Callback = function() validate() end
+})
+
+tab:Button({
+    Title = "Send Message",
+    Locked = false,
+    Callback = function() send(msg) end
+})
+
+tab:Toggle({
+    Title = "Spam Message",
+    Type = "Toggle",
+    Default = false,
+    Callback = function(state)
+        spam = state
+        if spam then
+            task.spawn(function()
+                while spam do
+                    send(msg, true)
+                    task.wait(del)
+                end
+            end)
+        end
+    end
+})
+
+tab:Button({
+    Title = "Delete Webhook",
+    Locked = false,
+    Callback = function() delete() end
+})
