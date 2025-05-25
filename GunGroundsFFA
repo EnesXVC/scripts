@@ -77,7 +77,7 @@ local forcereset = Main:CreateKeybind({
 })
 
 local gunmods = Main:CreateToggle({
-    Name = "Gun Mods Enabled",
+    Name = "Gun Mods Enabled(Reset to Enable)",
     CurrentValue = false,
     Flag = "GunModsEnabled",
     Callback = function(Value)
