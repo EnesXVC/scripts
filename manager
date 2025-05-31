@@ -1,11 +1,10 @@
---[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
 local ui = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 local notify = loadstring(game:HttpGet("https://raw.githubusercontent.com/ilovechubbyorangecat/script/refs/heads/main/notification.lua", true))()
+local HttpService = game:GetService("HttpService")
 
 local webhook, msg, del
 local spam = false
+local newName
 
 local function send(txt, silent)
     if not txt or txt == "" then
@@ -68,6 +67,34 @@ local function delete()
         else
             notify.Error("Webhook Does Not Exist", "Failed to delete webhook")
         end
+    end
+end
+
+local function changeWebhookName(name)
+    if not webhook or webhook == "" then
+        notify.Error("Webhook is not set", "Failed to change webhook name")
+        return
+    end
+    if not name or name == "" then
+        notify.Error("New name is empty", "Failed to change webhook name")
+        return
+    end
+
+    local res = http.request({
+        Url = webhook,
+        Method = "PATCH",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = HttpService:JSONEncode({
+            name = name
+        })
+    })
+
+    if res.StatusCode == 200 then
+        notify.Info("Webhook name changed", "Success")
+    else
+        notify.Error("Failed to change name: " .. tostring(res.StatusCode), "Error")
     end
 end
 
@@ -144,6 +171,20 @@ tab:Toggle({
                 end
             end)
         end
+    end
+})
+
+tab:Input({
+    Title = "Webhook Name Changer",
+    Placeholder = "Enter webhook name",
+    Callback = function(v) newName = v end
+})
+
+tab:Button({
+    Title = "Change Webhook Name",
+    Locked = false,
+    Callback = function()
+        changeWebhookName(newName)
     end
 })
 
