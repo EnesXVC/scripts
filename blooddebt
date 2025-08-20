@@ -1,6 +1,5 @@
 --NU-FWQ
 --[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
     Integrated ESP LocalScript with Rayfield UI, Role Detection, Distance Locking,
     and Enhanced Hint Matching including AssignedTask check.
     Fixed issue where players were tagged as hint match when no hints were present.
@@ -61,6 +60,7 @@ local killerWeapons = {
     ["Sawn-off"] = true,
     ["Clothed Rosen-Obrez"] = true,
     ["Rosen-Obrez"] = true,
+    ["GraySteel K1911"] = true,
     ["DarkSteel K1911"] = true,
     ["SilverSteel K1911"] = true,
     ["K1911"] = true,
@@ -75,7 +75,31 @@ local killerWeapons = {
     ["ChromeSlide Turqoise RR-LCP"] = true,
     ["JS-1 CYCLOPS"] = true,
     ["THUMPA"] = true,
-    ["LUT-E 'KRUS'"] = true
+    ["LUT-E 'KRUS'"] = true,
+    ["Memories"] = true,
+    ["Hammer n Bullet"] = true,
+    ["Throwing Shuriken"] = true,
+    ["Kamatov"] = true,
+    ["JS-22GILDED"] = true,
+    ["Sawn-offGILDED"] = true,
+    ["Door'bler TIGERSTRIPES"] = true,
+    ["Anatoly's JS-22"] = true,
+    ["Plastic JS-22"] = true,
+    ["JTS225-OBREZ"] = true,
+    ["HEARBALLA"] = true,
+    ["Whiteout Rosen-Obrez"] = true,
+    ["Whiteout RR-LCP"] = true,
+    ["JTS225-Obrez Monochrome"] = true,
+    ["JTS225-Obrez"] = true,
+    ["Sawn-off10"] = true,
+    ["Nikolai's 'Dented'"] = true,
+    ["JS-44"] = true,
+    ["BandagePack"] = true,
+    ["JTS225-Obrez Poly"] = true,
+    ["Mares Leg10"] = true,
+    ["RR-LCP10"] = true,
+    ["JTS225-Obrez Partycannon"] = true,
+    ["Bandages"] = true,
 }
 
 local vigilanteWeapons = {
@@ -91,6 +115,14 @@ local vigilanteWeapons = {
     ["GG-17 TAN"] = true, -- Added
     ["GG-17 GILDED"] = true, -- Added
     ["RR-Snubby GILDED"] = true, -- Added
+    ["HWISSH-226"] = true, -- Added
+    ["ZKZ-Obrez10"] = true, -- Added
+    ["Buxxberg-COMPACT"] = true,
+    ["RR-SnubbyGILDED"] = true,
+    ["Pretty Pink Buxxberg-COMPACT"] = true,
+    ["JS-5A-Obrez"] = true,
+    ["Dual Elites"] = true,
+    ["HWISSH-KP9"] = true,
 }
 
 -- Define Special Killer weapons (for the global check)
@@ -98,6 +130,7 @@ local specialKillerWeapons = {
     ["RY's GG-17"] = true,
     ["AT's KAR15"] = true,
     ["VK's ANKM"] = true,
+    ["RVK"] = true,
 }
 
 -- Define a combined list of all relevant weapons
